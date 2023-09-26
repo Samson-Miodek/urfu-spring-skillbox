@@ -3,7 +3,7 @@ package ru.sadykoff.mod1;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class Mod1Application {
+public class XmlMod1Application {
 
     public static void main(String[] args) {
         var applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");

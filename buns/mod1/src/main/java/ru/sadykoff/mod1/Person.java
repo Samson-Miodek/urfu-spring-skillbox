@@ -1,11 +1,17 @@
 package ru.sadykoff.mod1;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component("superPerson")
 public class Person {
+
     private final Pet pet;
     private String name;
     private int age;
 
-    public Person(Pet pet) {
+    public Person(@Autowired @Qualifier("superDog") Pet pet) {
         this.pet = pet;
     }
 

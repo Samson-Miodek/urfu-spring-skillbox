@@ -1,7 +1,9 @@
-package ru.sadykoff.mod1;
+package ru.sadykoff.mod1.xmlconfig;
 
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import ru.sadykoff.mod1.Person;
+import ru.sadykoff.mod1.Pet;
 
 public class XmlMod1Application {
 

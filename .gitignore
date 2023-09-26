@@ -12,6 +12,8 @@ target/
 *.iml
 *.ipr
 
+target
+
 ### other
 test.json
 test.mp4

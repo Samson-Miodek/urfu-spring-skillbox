@@ -10,5 +10,8 @@ public class AnnotationMod1Application {
 
         var person = applicationContext.getBean("superPerson",Person.class);
         person.callPet();
+
+        System.out.println(person.getName());
+        System.out.println(person.getAge());
     }
 }

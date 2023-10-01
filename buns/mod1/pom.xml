@@ -9,9 +9,9 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
     <groupId>ru.sadykoff.buns.mod1</groupId>
-    <artifactId>mod1</artifactId>
+    <artifactId>buns-mod1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>mod1</name>
+    <name>buns/mod1</name>
     <description>mod1</description>
     <build>
         <plugins>

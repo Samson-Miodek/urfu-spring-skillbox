@@ -22,6 +22,10 @@ test.mp4
 /output
 image.jpg
 
+target
+target/*
+target/**
+
 ### Eclipse ###
 .apt_generated
 .classpath

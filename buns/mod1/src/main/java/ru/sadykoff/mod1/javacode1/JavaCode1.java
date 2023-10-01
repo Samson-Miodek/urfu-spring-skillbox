@@ -5,7 +5,7 @@ import ru.sadykoff.mod1.Person;
 
 public class JavaCode1 {
     public static void main(String[] args) {
-        var config = new AnnotationConfigApplicationContext(Config.class);
+        var config = new AnnotationConfigApplicationContext(Config1.class);
 
         var person = config.getBean("superPerson", Person.class);
         person.callPet();

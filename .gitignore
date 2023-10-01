@@ -18,7 +18,6 @@ target
 test.json
 test.mp4
 .idea
-application.properties
 /logs
 /output
 image.jpg

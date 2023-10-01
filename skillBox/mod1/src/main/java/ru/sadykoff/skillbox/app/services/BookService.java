@@ -21,7 +21,12 @@ public class BookService {
     }
 
     public void saveBook(Book book) {
-        bookRepo.store(book);
+        var authorValid =  book.getAuthor() != null && !book.getAuthor().isEmpty();
+        var titleValid =  book.getTitle() != null && !book.getTitle().isEmpty();
+        var sizeValid =  book.getSize() != null;
+
+        if (authorValid || titleValid || sizeValid)
+            bookRepo.store(book);
     }
 
     public boolean removeBookById(Integer bookIdToRemove) {

@@ -43,4 +43,11 @@ public class BookShelfController {
         bookService.removeBookById(bookIdToRemove);
         return "redirect:/books/shelf";
     }
+
+
+    @PostMapping("/removeByRegex")
+    public String removeByRegex(@RequestParam(value = "queryRegex") String queryRegex) {
+        bookService.removeBookByRegex(queryRegex);
+        return "redirect:/books/shelf";
+    }
 }

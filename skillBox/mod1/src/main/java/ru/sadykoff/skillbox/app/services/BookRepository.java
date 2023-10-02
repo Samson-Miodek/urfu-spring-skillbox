@@ -35,4 +35,42 @@ public class BookRepository implements ProjectRepository<Book> {
         }
         return false;
     }
+
+    @Override
+    public boolean removeItemByRegex(String queryRegex) {
+        logger.debug(queryRegex);
+
+        var regexParts = queryRegex.toLowerCase().split("=");
+        if (regexParts.length == 2) {
+            var type = regexParts[0];
+            var value = regexParts[1];
+            logger.debug(type);
+            logger.debug(value);
+
+            if (type.equals("author") || type.equals("title") || type.equals("size")) {
+                for (Book book : retreiveAll()) {
+
+                    if (type.equals("author") && book.getAuthor().equals(value)) {
+                        logger.info(String.format("remove book by author %s completed: %s", value, book));
+                        return repo.remove(book);
+                    }
+                    if (type.equals("title") && book.getTitle().equals(value)) {
+                        logger.info(String.format("remove book by title %s completed: %s", value, book));
+                        return repo.remove(book);
+                    }
+                    try {
+                        if (type.equals("size") && book.getSize() == Integer.parseInt(value)) {
+                            logger.info(String.format("remove book by size %s completed: %s", value, book));
+                            return repo.remove(book);
+                        }
+                    } catch (Exception e) {
+                        logger.error(e);
+                    }
+
+                }
+            }
+        }
+
+        return false;
+    }
 }

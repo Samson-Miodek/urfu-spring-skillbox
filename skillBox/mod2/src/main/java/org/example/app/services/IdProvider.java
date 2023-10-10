@@ -1,38 +1,37 @@
-package ru.sadykoff.mod2.app.services;
+package org.example.app.services;
 
 import org.apache.log4j.Logger;
+import org.example.web.dto.Book;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-import ru.sadykoff.mod2.web.dto.Book;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-
 
 public class IdProvider implements InitializingBean, DisposableBean, BeanPostProcessor {
 
     Logger logger = Logger.getLogger(IdProvider.class);
 
     public String provideId(Book book) {
-        return String.format("%s_%s",this.hashCode(),book.hashCode());
+        return this.hashCode() + "_" + book.hashCode();
     }
 
-    private void iniIdProvider() {
-        logger.info("iniIdProvider");
+    private void initIdProvider() {
+        logger.info("provider INIT");
     }
 
     private void destroyIdProvider() {
-        logger.info("destroyIdProvider");
+        logger.info("provider DESTROY");
     }
 
-    private void defaultInit(){
-        logger.info("defaultInit in provider");
+    public void defaultInit() {
+        logger.info("default INIT in provider");
     }
 
-    private void defaultDestroy(){
-        logger.info("defaultDestroy in provider");
+    public void defaultDestroy() {
+        logger.info("default DESTROY in provider");
     }
 
     @Override
@@ -47,22 +46,23 @@ public class IdProvider implements InitializingBean, DisposableBean, BeanPostPro
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        logger.info(String.format("postProcessBeforeInitialization invoked by bean %s",beanName));
-        return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName);
+        logger.info("postProcessBeforeInitialization invoked by bean " + beanName);
+        return null;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        logger.info(String.format("postProcessAfterInitialization invoked by bean %s",beanName));
-        return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
+        logger.info("postProcessAfterInitialization invoked by bean " + beanName);
+        return null;
     }
 
     @PostConstruct
-    public void postConstructIdProvider(){
-        logger.info("PostConstruct by IdProvider");
+    public void postConstructIdProvider() {
+        logger.info("PostConstruct annotated method called");
     }
+
     @PreDestroy
-    public void preDestroyIdProvider(){
-        logger.info("PreDestroy by IdProvider");
+    public void preDestroyIdProvider() {
+        logger.info("PreDestroy annotated method called");
     }
 }

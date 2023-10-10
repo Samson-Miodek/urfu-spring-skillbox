@@ -1,4 +1,4 @@
-package ru.sadykoff.mod2.web.dto;
+package org.example.web.dto;
 
 public class LoginForm {
 

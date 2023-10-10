@@ -1,7 +1,7 @@
-package ru.sadykoff.mod2.app.services;
+package org.example.app.services;
 
 import org.apache.log4j.Logger;
-import ru.sadykoff.mod2.web.dto.LoginForm;
+import org.example.web.dto.LoginForm;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,4 +13,5 @@ public class LoginService {
         logger.info("try auth with user-form: " + loginFrom);
         return loginFrom.getUsername().equals("root") && loginFrom.getPassword().equals("123");
     }
+
 }

@@ -10,5 +10,9 @@ public class ErrorController {
     public String notFoundError() {
         return "errors/404";
     }
+    @GetMapping("/204")
+    public String noContent() {
+        return "errors/204";
+    }
 
 }

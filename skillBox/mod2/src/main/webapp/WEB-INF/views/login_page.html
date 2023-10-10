@@ -24,6 +24,8 @@
         <br>
         <input class="login_item" type="password" placeholder="password" th:field="*{password}">
         <br>
+        <p th:if="${#fields.hasErrors()}">Invalid username or password</p>
+
         <input class="login_item" type="submit" value="login">
     </form>
 

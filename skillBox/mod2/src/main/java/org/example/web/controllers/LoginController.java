@@ -7,10 +7,13 @@ import org.example.web.dto.LoginForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping(value = "/login")
@@ -32,7 +35,7 @@ public class LoginController {
     }
 
     @PostMapping("/auth")
-    public String authenticate(LoginForm loginFrom) throws BookShelfLoginException {
+    public String authenticate(@Valid LoginForm loginFrom, BindingResult bindingResult) throws BookShelfLoginException {
         if (loginService.authenticate(loginFrom)) {
             logger.info("login OK redirect to book shelf");
             return "redirect:/books/shelf";

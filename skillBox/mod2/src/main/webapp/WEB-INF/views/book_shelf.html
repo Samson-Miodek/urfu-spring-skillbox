@@ -68,6 +68,28 @@
             </tr>
         </table>
     </form>
+    <form method="post" th:action="@{/books/removeByRegex}">
+        <table>
+            <tr>
+                <td>
+                    <input type="text" placeholder="author=name OR title=name OR size=count" th:name="queryRegex">
+                </td>
+                <td>
+                    <input type="submit" value="remove by regex">
+                </td>
+                <td>
+                    <p th:if="${param.emptyQueryRegex}">
+                        Empty Query Regex
+                    </p>
+                    <p th:if="${param.invalidQueryRegex}">
+                        Invalid Query Regex
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+
 
     <form method="post" th:action="@{/books/uploadFile}" enctype="multipart/form-data">
         <table>

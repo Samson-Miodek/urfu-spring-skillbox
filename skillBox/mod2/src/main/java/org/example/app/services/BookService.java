@@ -1,6 +1,7 @@
 package org.example.app.services;
 
 import org.apache.log4j.Logger;
+import org.example.app.exceptions.BookShelfQueryRegexException;
 import org.example.web.dto.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,5 +36,9 @@ public class BookService {
 
     public void defaultDestroy() {
         logger.info("default DESTROY in book service");
+    }
+
+    public void removeBookByRegex(String queryRegex) throws BookShelfQueryRegexException {
+        bookRepo.removeItemByRegex(queryRegex);
     }
 }

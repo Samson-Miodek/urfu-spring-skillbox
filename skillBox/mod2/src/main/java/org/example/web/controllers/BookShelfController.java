@@ -2,6 +2,7 @@ package org.example.web.controllers;
 
 import org.apache.log4j.Logger;
 import org.example.app.exceptions.BookShelfLoginException;
+import org.example.app.exceptions.BookShelfQueryRegexException;
 import org.example.app.exceptions.BookShelfUploadFileException;
 import org.example.app.services.BookService;
 import org.example.web.dto.Book;
@@ -99,5 +100,16 @@ public class BookShelfController {
     public String handleError(Model model, BookShelfUploadFileException exception) {
         model.addAttribute("errorMessage", exception.getMessage());
         return "errors/204";
+    }
+
+
+    @PostMapping("/removeByRegex")
+    public String removeByRegex(@RequestParam(value = "queryRegex") String queryRegex) {
+        try {
+            bookService.removeBookByRegex(queryRegex);
+        } catch (BookShelfQueryRegexException e) {
+            return String.format("redirect:/books/shelf?%s",e.getMessage());
+        }
+        return "redirect:/books/shelf";
     }
 }

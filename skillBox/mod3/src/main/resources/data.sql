@@ -1,8 +1,17 @@
+insert into authors (id, first_name, last_name, patronymic, biography) values (37, 'Ivan','Ivanov','Ivanovich','Great biography');
+
 insert into books (id, price, price_old, title, author_id) values (1, 1642, 1843, 'Bitwolf', 37);
 insert into books (id, price, price_old, title, author_id) values (2, 707, 1451, 'Tres-Zap', 66);
 insert into books (id, price, price_old, title, author_id) values (3, 1590, 2445, 'Daltfresh', 80);
 insert into books (id, price, price_old, title, author_id) values (4, 2951, 2425, 'Namfix', 95);
 insert into books (id, price, price_old, title, author_id) values (5, 2267, 2139, 'Sonsing', 73);
+
+insert into authors_books(author_id,books_id) values (37,1);
+insert into authors_books(author_id,books_id) values (37,2);
+insert into authors_books(author_id,books_id) values (37,3);
+insert into authors_books(author_id,books_id) values (37,4);
+insert into authors_books(author_id,books_id) values (37,5);
+
 insert into books (id, price, price_old, title, author_id) values (6, 2403, 1007, 'Bytecard', 49);
 insert into books (id, price, price_old, title, author_id) values (7, 2271, 3149, 'Tempsoft', 18);
 insert into books (id, price, price_old, title, author_id) values (8, 2855, 3279, 'Holdlamis', 74);

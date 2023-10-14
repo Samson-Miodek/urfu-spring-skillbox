@@ -8,6 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
 @Controller
 @RequestMapping("/bookshop")
 public class MainPageController {
@@ -35,7 +38,8 @@ public class MainPageController {
 
     @GetMapping("/authors")
     public String authorsPage(Model model){
-        model.addAttribute("authorsData", authorService.getAuthorsData());
+        model.addAttribute("authorService", authorService);
+        model.addAttribute("letters", authorService.getAuthorsFirstLetters());
         return "authors/index";
     }
 }

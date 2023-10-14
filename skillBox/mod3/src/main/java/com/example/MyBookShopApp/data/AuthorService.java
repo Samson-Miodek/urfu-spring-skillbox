@@ -17,9 +17,9 @@ public class AuthorService {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<Author> getAuthorsData(){
+    public List<Author> getAuthorsData() {
 
-        List<Author> authors = jdbcTemplate.query("SELECT * FROM authors", (ResultSet rs, int rownum)->{
+        List<Author> authors = jdbcTemplate.query("SELECT * FROM authors", (ResultSet rs, int rownum) -> {
             var author = new Author();
             author.setId(rs.getInt("id"));
             author.setFirstName(rs.getString("first_name"));
@@ -30,4 +30,26 @@ public class AuthorService {
         });
         return new ArrayList<>(authors);
     }
+
+    public List<Author> getAuthorsByStartSymbol(String symbol) {
+        List<Author> authors = jdbcTemplate.query("SELECT * FROM authors WHERE first_name LIKE '" + symbol + "%';", (ResultSet rs, int rownum) -> {
+            var author = new Author();
+            author.setId(rs.getInt("id"));
+            author.setFirstName(rs.getString("first_name"));
+            author.setLastName(rs.getString("last_name"));
+            author.setPatronymic(rs.getString("patronymic"));
+            author.setBiography(rs.getString("biography"));
+            return author;
+        });
+        return new ArrayList<>(authors);
+    }
+
+    public List<String> getAuthorsFirstLetters() {
+        return jdbcTemplate.query("SELECT DISTINCT SUBSTRING (first_name, 1, 1)  as letter FROM AUTHORS ", (ResultSet rs, int rownum) -> {
+            return rs.getString("letter");
+        });
+    }
+
+
+//    SELECT DISTINCT SUBSTRING (first_name, 1, 1) FROM AUTHORS
 }

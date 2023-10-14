@@ -103,68 +103,15 @@
             <div class="Authors-links"><a class="Authors-link" href="#a">А</a><a class="Authors-link" href="#b">Б</a><a class="Authors-link" href="#v">В</a><a class="Authors-link" href="#g">Г</a><a class="Authors-link" href="#d">Д</a><a class="Authors-link" href="#e">Е</a><a class="Authors-link" href="#e">Ё</a><a class="Authors-link" href="#ge">Ж</a><a class="Authors-link" href="#z">З</a><a class="Authors-link" href="#i">И</a><a class="Authors-link" href="#ik">Й</a><a class="Authors-link" href="#k">К</a><a class="Authors-link" href="#l">Л</a><a class="Authors-link" href="#m">М</a><a class="Authors-link" href="#n">Н</a><a class="Authors-link" href="#o">О</a><a class="Authors-link" href="#p">П</a><a class="Authors-link" href="#r">Р</a><a class="Authors-link" href="#s">С</a><a class="Authors-link" href="#t">Т</a><a class="Authors-link" href="#u">У</a><a class="Authors-link" href="#f">Ф</a><a class="Authors-link" href="#h">Х</a><a class="Authors-link" href="#c">Ц</a><a class="Authors-link" href="#ch">Ч</a><a class="Authors-link" href="#sh">Ш</a><a class="Authors-link" href="#shh">Щ</a><a class="Authors-link" href="#ye">Э</a><a class="Authors-link" href="#yu">Ю</a><a class="Authors-link" href="#ya">Я</a>
             </div>
             <div class="Authors-block">
-              <h2 class="Authors-title" id="a">А
-              </h2>
-              <div class="Authors-letter">
-                <div class="Authors-item" th:each="author : ${authorsData}"><a th:text="${author.getFullName()}" href="/authors/slug.html">Байбаков Иван</a>
+
+              <div th:each="letter : ${letters}">
+                <h2 class="Authors-title" th:text="${letter}">А
+                </h2>
+                <div class="Authors-letter">
+                  <div class="Authors-item" th:each="author : ${authorService.getAuthorsByStartSymbol(letter)}"><a th:text="${author.getFullName()}" href="/authors/slug.html">Байбаков Иван</a>
+                  </div>
                 </div>
               </div>
-              <h2 class="Authors-title" id="b">Б
-              </h2>
-              <h2 class="Authors-title" id="v">В
-              </h2>
-              <h2 class="Authors-title" id="g">Г
-              </h2>
-              <h2 class="Authors-title" id="d">Д
-              </h2>
-              <h2 class="Authors-title" id="e">Е
-              </h2>
-              <h2 class="Authors-title" id="ge">Ж
-              </h2>
-              <h2 class="Authors-title" id="z">З
-              </h2>
-              <h2 class="Authors-title" id="i">И
-              </h2>
-              <h2 class="Authors-title" id="ik">Й
-              </h2>
-              <h2 class="Authors-title" id="k">К
-              </h2>
-              <h2 class="Authors-title" id="l">Л
-              </h2>
-              <h2 class="Authors-title" id="m">М
-              </h2>
-              <h2 class="Authors-title" id="n">Н
-              </h2>
-              <h2 class="Authors-title" id="o">О
-              </h2>
-              <h2 class="Authors-title" id="p">П
-              </h2>
-              <h2 class="Authors-title" id="r">Р
-              </h2>
-              <h2 class="Authors-title" id="s">С
-              </h2>
-              <h2 class="Authors-title" id="t">Т
-              </h2>
-              <h2 class="Authors-title" id="u">У
-              </h2>
-              <h2 class="Authors-title" id="f">Ф
-              </h2>
-              <h2 class="Authors-title" id="h">Х
-              </h2>
-              <h2 class="Authors-title" id="c">Ц
-              </h2>
-              <h2 class="Authors-title" id="ch">Ч
-              </h2>
-              <h2 class="Authors-title" id="sh">Ш
-              </h2>
-              <h2 class="Authors-title" id="shh">Щ
-              </h2>
-              <h2 class="Authors-title" id="ye">Э
-              </h2>
-              <h2 class="Authors-title" id="yu">Ю
-              </h2>
-              <h2 class="Authors-title" id="ya">Я
-              </h2>
             </div>
           </div>
         </div>

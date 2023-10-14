@@ -1,16 +1,124 @@
-insert into authors (id, first_name, last_name, patronymic, biography) values (37, 'Ivan','Ivanov','Ivanovich','Great biography');
+-- insert into authors (id, first_name, last_name, patronymic, biography) values (37, 'Ivan','Ivanov','Ivanovich','Great biography');
+--
+-- insert into books (id, price, price_old, title, author_id) values (1, 1642, 1843, 'Bitwolf', 37);
+-- insert into books (id, price, price_old, title, author_id) values (2, 707, 1451, 'Tres-Zap', 66);
+-- insert into books (id, price, price_old, title, author_id) values (3, 1590, 2445, 'Daltfresh', 80);
+-- insert into books (id, price, price_old, title, author_id) values (4, 2951, 2425, 'Namfix', 95);
+-- insert into books (id, price, price_old, title, author_id) values (5, 2267, 2139, 'Sonsing', 73);
+--
+-- insert into authors_books(author_id,books_id) values (37,1);
+-- insert into authors_books(author_id,books_id) values (37,2);
+-- insert into authors_books(author_id,books_id) values (37,3);
+-- insert into authors_books(author_id,books_id) values (37,4);
+-- insert into authors_books(author_id,books_id) values (37,5);
 
-insert into books (id, price, price_old, title, author_id) values (1, 1642, 1843, 'Bitwolf', 37);
-insert into books (id, price, price_old, title, author_id) values (2, 707, 1451, 'Tres-Zap', 66);
-insert into books (id, price, price_old, title, author_id) values (3, 1590, 2445, 'Daltfresh', 80);
-insert into books (id, price, price_old, title, author_id) values (4, 2951, 2425, 'Namfix', 95);
-insert into books (id, price, price_old, title, author_id) values (5, 2267, 2139, 'Sonsing', 73);
 
-insert into authors_books(author_id,books_id) values (37,1);
-insert into authors_books(author_id,books_id) values (37,2);
-insert into authors_books(author_id,books_id) values (37,3);
-insert into authors_books(author_id,books_id) values (37,4);
-insert into authors_books(author_id,books_id) values (37,5);
+
+
+
+insert into authors (id, first_name, last_name, patronymic, biography) values (1, 'Eberto', 'Barley', 'Cannavan', 'Sed ante. Vivamus tortor. Duis mattis egestas metus.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (2, 'Valma', 'Queree', 'Fonso', 'Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (3, 'Felita', 'Rozet', 'Scanterbury', 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (4, 'Isadore', 'Rolse', 'August', 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (5, 'Marie', 'Lemmanbie', 'Mighele', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (6, 'Ginelle', 'McCracken', 'Kingdon', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (7, 'Trent', 'Milburne', 'Kivelle', 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (8, 'Charlton', 'Kineton', 'Palffy', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (9, 'Florri', 'Linguard', 'Jills', 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (10, 'Almeria', 'Batalle', 'Fritz', 'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (11, 'Frasier', 'Kington', 'Ratledge', 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (12, 'Der', 'Johnke', 'Ledwidge', 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (13, 'Ericka', 'Seamen', 'Rosthorn', 'Fusce consequat. Nulla nisl. Nunc nisl.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (14, 'Sandy', 'Deinert', 'Brock', 'Sed ante. Vivamus tortor. Duis mattis egestas metus.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (15, 'Aarika', 'Stolle', 'Colman', 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (16, 'Thorvald', 'Brands', 'Woollin', 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (17, 'Hastie', 'Reames', 'Benyon', 'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (18, 'Bettine', 'Cleminshaw', 'Manners', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (19, 'Tuck', 'Sibthorpe', 'Calladine', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (20, 'Paolina', 'Sharer', 'Nottingham', 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (21, 'Howey', 'Pinchbeck', 'Gallego', 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (22, 'Suzi', 'Ambrogelli', 'Hubbins', 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (23, 'Drona', 'Gerg', 'Wigg', 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (24, 'Velvet', 'Suggey', 'Orteaux', 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (25, 'Erl', 'Pasley', 'Pomphrey', 'Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (26, 'Eddy', 'Witul', 'Collyer', 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (27, 'Cass', 'Testo', 'Godding', 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (28, 'Mathew', 'Dundin', 'Dibley', 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (29, 'Randie', 'Winkless', 'Burdus', 'Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (30, 'Redd', 'O''Dee', 'Rissen', 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (31, 'Boot', 'Crathorne', 'Gossage', 'Sed ante. Vivamus tortor. Duis mattis egestas metus.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (32, 'Daron', 'Sember', 'Shayler', 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (33, 'Sukey', 'Jersh', 'Woodcraft', 'Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (34, 'Roderich', 'Blackler', 'Skaife', 'Phasellus in felis. Donec semper sapien a libero. Nam dui.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (35, 'Leah', 'Lamputt', 'Beney', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (36, 'Fidelia', 'Freake', 'Simonard', 'In congue. Etiam justo. Etiam pretium iaculis justo.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (37, 'Lance', 'Hurler', 'Burch', 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (38, 'Kathleen', 'Benezet', 'Pershouse', 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (39, 'Rozalin', 'Burless', 'Spinley', 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (40, 'Thurstan', 'Harkins', 'Maylott', 'Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (41, 'Ernesta', 'Denizet', 'Revey', 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (42, 'Christoforo', 'Siddon', 'Wreath', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (43, 'Shaine', 'Crebbin', 'Rappa', 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (44, 'Kamillah', 'Lynd', 'Kemston', 'Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (45, 'Arnold', 'Neary', 'Boorer', 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (46, 'Elle', 'Slatten', 'Petrus', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (47, 'Tris', 'Ratnege', 'Gimlet', 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (48, 'Donica', 'Saunper', 'Enticknap', 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (49, 'Minor', 'Furtado', 'Deville', 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (50, 'Derril', 'Macken', 'Godbert', 'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (51, 'Mandy', 'Cansdell', 'Eard', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (52, 'Zilvia', 'Hallwell', 'Coad', 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (53, 'Henri', 'Pinkstone', 'Briffett', 'Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (54, 'Leola', 'Barthod', 'Sharple', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (55, 'Catha', 'Pechacek', 'Kenewell', 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (56, 'Minette', 'Attenborrow', 'Rame', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (57, 'Anjela', 'Proger', 'Timbs', 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (58, 'Rawley', 'Wildes', 'Eadmeades', 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (59, 'Alain', 'Pitkin', 'Pullen', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (60, 'Darryl', 'Darrington', 'Fowley', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (61, 'Flo', 'Stobbie', 'Dami', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (62, 'Ario', 'Aird', 'Beinke', 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (63, 'Cynthy', 'Ast', 'Lindback', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (64, 'Zaneta', 'Bilsford', 'Herculson', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (65, 'Anstice', 'Follos', 'Finlan', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (66, 'Bevvy', 'Fryett', 'Eisig', 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (67, 'Hector', 'Cutting', 'Highton', 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (68, 'Chevalier', 'McInnes', 'Garry', 'Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (69, 'Susan', 'Chark', 'Foulis', 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (70, 'Saidee', 'McAsgill', 'Crush', 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (71, 'Dorisa', 'Marwick', 'Waltho', 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (72, 'Oswell', 'Fritschmann', 'Cullum', 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (73, 'Agatha', 'Feldberger', 'Flello', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (74, 'Tallulah', 'Chaves', 'Cristofalo', 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (75, 'Elise', 'Morsley', 'Ragat', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (76, 'Torie', 'Pinch', 'Lovat', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (77, 'Jayme', 'Rape', 'Neachell', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (78, 'Cammie', 'Walkinshaw', 'Penhallurick', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (79, 'Vitia', 'Gibbeson', 'Hickeringill', 'Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (80, 'Dominique', 'Ullyatt', 'Micklewright', 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (81, 'Dotty', 'Addey', 'Bohlin', 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (82, 'Wyatan', 'Eliot', 'Egel', 'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (83, 'Bellanca', 'Walesby', 'Gibling', 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (84, 'Aymer', 'Peever', 'Grunguer', 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (85, 'Arny', 'Lartice', 'Bircher', 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (86, 'Arron', 'Stoffers', 'Strowthers', 'Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (87, 'Sterling', 'Toye', 'Jennemann', 'Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (88, 'Hilly', 'Henri', 'Duerdin', 'Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (89, 'Micaela', 'Kelner', 'Harrap', 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (90, 'Angelico', 'Fossey', 'Feldhuhn', 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (91, 'Genvieve', 'Dielhenn', 'Staunton', 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (92, 'Jermaine', 'Reuben', 'Winscomb', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (93, 'Lisette', 'Wimlet', 'Hehnke', 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (94, 'Hoebart', 'Whitrod', 'Jenman', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (95, 'Dalton', 'Duddin', 'Benthall', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (96, 'Dagny', 'Foker', 'Semour', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (97, 'Alden', 'Ruby', 'Mapledoram', 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (98, 'Dael', 'Stert', 'Thornborrow', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (99, 'Skye', 'Hillin', 'Drinkale', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.');
+insert into authors (id, first_name, last_name, patronymic, biography) values (100, 'Lesley', 'Crosetti', 'Grishunin', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.');
+
+
+
 
 insert into books (id, price, price_old, title, author_id) values (6, 2403, 1007, 'Bytecard', 49);
 insert into books (id, price, price_old, title, author_id) values (7, 2271, 3149, 'Tempsoft', 18);
@@ -1007,3 +1115,8 @@ insert into books (id, price, price_old, title, author_id) values (997, 580, 131
 insert into books (id, price, price_old, title, author_id) values (998, 2154, 3898, 'Sonsing', 18);
 insert into books (id, price, price_old, title, author_id) values (999, 2423, 3953, 'Lotstring', 90);
 insert into books (id, price, price_old, title, author_id) values (1000, 1100, 2905, 'Aerified', 41);
+
+
+insert into authors_books(author_id,books_id) SELECT AUTHORS.ID, BOOKS.ID
+FROM AUTHORS
+         INNER JOIN BOOKS ON AUTHORS.ID=BOOKS.author_id ORDER BY AUTHORS.ID;

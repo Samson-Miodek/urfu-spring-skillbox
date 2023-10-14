@@ -101,12 +101,12 @@
         <div class="Section">
           <div class="Authors">
             <div class="Authors-links">
-              <a class="Authors-link" th:each="letter : ${letters}" th:text="${letter}">А</a>
+              <a class="Authors-link" th:each="letter : ${letters}" th:href="'#'+${letter}" th:text="${letter}">А</a>
             </div>
             <div class="Authors-block">
 
               <div th:each="letter : ${letters}">
-                <h2 class="Authors-title" th:text="${letter}">А
+                <h2 class="Authors-title" th:id="${letter}" th:text="${letter}">А
                 </h2>
                 <div class="Authors-letter">
                   <div class="Authors-item" th:each="author : ${authorService.getAuthorsByStartSymbol(letter)}"><a th:text="${author.getFullName()}" href="/authors/slug.html">Байбаков Иван</a>

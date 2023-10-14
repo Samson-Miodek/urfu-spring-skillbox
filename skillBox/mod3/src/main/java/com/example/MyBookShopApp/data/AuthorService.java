@@ -44,6 +44,19 @@ public class AuthorService {
         return new ArrayList<>(authors);
     }
 
+    public List<Author> getAuthorsByBookId(Integer bookId) {
+        List<Author> authors = jdbcTemplate.query("select * from authors where id in (SELECT author_id from books where id="+bookId+");", (ResultSet rs, int rownum) -> {
+            var author = new Author();
+            author.setId(rs.getInt("id"));
+            author.setFirstName(rs.getString("first_name"));
+            author.setLastName(rs.getString("last_name"));
+            author.setPatronymic(rs.getString("patronymic"));
+            author.setBiography(rs.getString("biography"));
+            return author;
+        });
+        return new ArrayList<>(authors);
+    }
+
     public List<String> getAuthorsFirstLetters() {
         return jdbcTemplate.query("SELECT DISTINCT SUBSTRING (first_name, 1, 1)  as letter FROM AUTHORS ", (ResultSet rs, int rownum) -> {
             return rs.getString("letter");

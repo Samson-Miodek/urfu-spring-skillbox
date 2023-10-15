@@ -1,28 +1,23 @@
 package com.example.MyBookShopApp.data;
 
-import javax.persistence.Column;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "books")
 public class Book {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "author_id")
-    private Integer authorId;
+    @ManyToOne
+    @JoinColumn(name = "author_id", referencedColumnName = "id")
+    private Author author;
+
     private String title;
     @Column(name = "price_old")
     private Integer priceOld;
     private Integer price;
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", author='" + authorId + '\'' +
-                ", title='" + title + '\'' +
-                ", priceOld=" + priceOld +
-                ", price=" + price +
-                '}';
-    }
 
     public Integer getId() {
         return id;
@@ -32,12 +27,12 @@ public class Book {
         this.id = id;
     }
 
-    public Integer getAuthorId() {
-        return authorId;
+    public Author getAuthor() {
+        return author;
     }
 
-    public void setAuthorId(Integer authorId) {
-        this.authorId = authorId;
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 
     public String getTitle() {
@@ -63,5 +58,15 @@ public class Book {
     public void setPrice(Integer price) {
         this.price = price;
     }
-}
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", author=" + author +
+                ", title='" + title + '\'' +
+                ", priceOld=" + priceOld +
+                ", price=" + price +
+                '}';
+    }
+}

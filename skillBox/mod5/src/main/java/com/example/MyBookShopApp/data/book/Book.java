@@ -1,4 +1,4 @@
-package com.example.MyBookShopApp.data;
+package com.example.MyBookShopApp.data.book;
 
 import javax.persistence.*;
 import java.util.Date;

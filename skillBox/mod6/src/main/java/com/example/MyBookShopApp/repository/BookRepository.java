@@ -5,7 +5,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Date;
+
 
 public interface BookRepository extends JpaRepository<Book,Integer> {
     Page<Book> findBookByTitleContainingIgnoreCase(String bookTitle, Pageable nextPage);
+    Page<Book> findBookByPubDateBetween(Date from, Date to, Pageable nextPage);
 }

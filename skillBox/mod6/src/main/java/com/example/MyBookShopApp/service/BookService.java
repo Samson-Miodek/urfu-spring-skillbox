@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -28,6 +29,10 @@ public class BookService {
     public Page<Book> getPageOfBooksData(Integer offset, Integer limit) {
         var nextPage = PageRequest.of(offset, limit);
         return bookRepository.findAll(nextPage);
+    }
+    public Page<Book> getPageOfBooksDataByPubDate(Date from, Date to, Integer offset, Integer limit) {
+        var nextPage = PageRequest.of(offset, limit);
+        return bookRepository.findBookByPubDateBetween(from,to, nextPage);
     }
 
     public Page<Book> getPageOfSearchResultBooks(String searchWord, Integer offset, Integer limit) {

@@ -2465,7 +2465,10 @@ insert into balance_transaction (time, user_id, value, book_id, description) val
 
 
 
-
+update book2user_type set name='Отложена' where code='KEPT';
+update book2user_type set name='В корзине' where code='CART';
+update book2user_type set name='Куплена' where code='PAID';
+update book2user_type set name='В архиве' where code='ARCHIVED';
 
 
 

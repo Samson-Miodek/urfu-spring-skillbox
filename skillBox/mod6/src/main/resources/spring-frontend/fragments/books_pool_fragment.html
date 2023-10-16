@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <div class="Cards Cards_refresh" th:fragment="pool">
     <div class="Card" th:each="book: ${booksList}">
-        <div class="Card-picture"><a href="#" th:href="${book.id}"><img src="/assets/img/content/main/card.jpg" alt="card.jpg"/></a>
+        <div class="Card-picture"><a href="#" th:href="${book.id}"><img src="/assets/img/content/main/card.jpg" th:src="${book.image}" alt="card.jpg"/></a>
         </div>
         <div class="Card-content">
             <strong class="Card-title"><a href="#" th:text="${book.title}">>Техника</a>
@@ -16,9 +16,10 @@
             </div>
         </div>
     </div>
-
-    <div class="Cards-footer Cards-footer_center"><a class="btn btn_primary" href="#" th:attr="data-refreshshow = ${category}" data-refreshshow="recent"
-                                                     data-refreshoffset="20" data-refreshlimit="20">Показать еще</a>
+<!--th:attr="data-refreshshow = ${category}"  -->
+<!--    th:attr="data-refreshquery = ${searchWordDTO}" -->
+    <div class="Cards-footer Cards-footer_center"><a class="btn btn_primary" href="#" th:attr="data-refreshshow = ${category},data-refreshquery = ${searchWordDTO}"  data-refreshshow="recent"
+                                                     data-refreshoffset="0" data-refreshlimit="5"  >Показать еще</a>
     </div>
 </div>
 </html>

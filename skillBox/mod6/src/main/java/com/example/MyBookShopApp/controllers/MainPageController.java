@@ -1,7 +1,8 @@
 package com.example.MyBookShopApp.controllers;
 
 import com.example.MyBookShopApp.data.book.Book;
-import com.example.MyBookShopApp.data.dto.RecommendedBooksPageDTO;
+import com.example.MyBookShopApp.data.dto.BooksPageDTO;
+import com.example.MyBookShopApp.data.dto.SearchWordDTO;
 import com.example.MyBookShopApp.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,7 +45,13 @@ public class MainPageController {
 
     @GetMapping("/books/recommended")
     @ResponseBody
-    public RecommendedBooksPageDTO getBookRecommended(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit){
-        return new RecommendedBooksPageDTO(bookService.getPageOfBooksData(offset,limit).getContent());
+    public BooksPageDTO getBookRecommended(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit){
+        return new BooksPageDTO(bookService.getPageOfBooksData(offset,limit).getContent());
+    }
+
+
+    @ModelAttribute("searchWordDTO")
+    public SearchWordDTO searchWordDTO(){
+        return new SearchWordDTO();
     }
 }

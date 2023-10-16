@@ -10,5 +10,6 @@ import java.util.Date;
 
 public interface BookRepository extends JpaRepository<Book,Integer> {
     Page<Book> findBookByTitleContainingIgnoreCase(String bookTitle, Pageable nextPage);
-    Page<Book> findBookByPubDateBetween(Date from, Date to, Pageable nextPage);
+    Page<Book> findAllByPubDateBetweenOrderByPubDateDesc(Date from, Date to, Pageable nextPage);
+//    Page<Book> findAllBy(Pageable nextPage);
 }

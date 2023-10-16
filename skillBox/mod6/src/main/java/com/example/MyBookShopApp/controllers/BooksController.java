@@ -17,7 +17,6 @@ public class BooksController {
 
     private BookService bookService;
 
-
     @Autowired
     public BooksController(BookService bookService) {
         this.bookService = bookService;
@@ -25,12 +24,12 @@ public class BooksController {
 
 
     @GetMapping("recent")
-    public String recentPage(){
+    public String recentPage() {
         return "books/recent";
     }
 
     @GetMapping("popular")
-    public String popularPage(){
+    public String popularPage() {
         return "books/popular";
     }
 
@@ -40,16 +39,25 @@ public class BooksController {
         var simpleDateFormat = new SimpleDateFormat("dd.MM.yyy");
         var from = simpleDateFormat.parse(fromPattern);
         var to = simpleDateFormat.parse(toPattern);
-        return new BooksPageDTO(bookService.getPageOfBooksDataByPubDate(from,to,offset,limit).getContent());
+        return new BooksPageDTO(bookService.getPageOfBooksDataByPubDate(from, to, offset, limit).getContent());
     }
+
     @GetMapping("/page/popular")
     @ResponseBody
-    public BooksPageDTO getNextPopularPage(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit){
-        return new BooksPageDTO(bookService.getPageOfBooksData(offset,limit).getContent());
+    public BooksPageDTO getNextPopularPage(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit) {
+        return new BooksPageDTO(bookService.getPageOfBooksData(offset, limit).getContent());
     }
 
     @ModelAttribute("booksList")
-    public List<Book> bookList(){
-        return bookService.getPageOfBooksData(0,5).getContent();
+    public List<Book> bookList() {
+        return bookService.getPageOfBooksData(0, 5).getContent();
+    }
+
+    @ModelAttribute("recentBookList")
+    public List<Book> recentBookList() throws ParseException {
+        var simpleDateFormat = new SimpleDateFormat("dd.MM.yyy");
+        var from = simpleDateFormat.parse("01.01.2000");
+        var to = simpleDateFormat.parse("01.01.2016");
+        return bookService.getPageOfBooksDataByPubDate(from, to, 0, 10).getContent();
     }
 }

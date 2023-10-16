@@ -32,7 +32,7 @@ public class BookService {
     }
     public Page<Book> getPageOfBooksDataByPubDate(Date from, Date to, Integer offset, Integer limit) {
         var nextPage = PageRequest.of(offset, limit);
-        return bookRepository.findBookByPubDateBetween(from,to, nextPage);
+        return bookRepository.findAllByPubDateBetweenOrderByPubDateDesc(from,to,nextPage);
     }
 
     public Page<Book> getPageOfSearchResultBooks(String searchWord, Integer offset, Integer limit) {

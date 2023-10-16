@@ -30,7 +30,18 @@ public class Book {
     @Column(columnDefinition = "SMALLINT NOT NULL DEFAULT 0")
     private short discount;
 
+    @Column(name = "author_id")
+    private Integer authorId;
+
     public Book() {
+    }
+
+    public Integer getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(Integer authorId) {
+        this.authorId = authorId;
     }
 
     public Integer getId() {

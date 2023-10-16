@@ -27,6 +27,14 @@ public class MainPageController {
     public List<Book> recommendedBooks(){
         return bookService.getBooksData();
     }
+    @ModelAttribute("newBooks")
+    public List<Book> newBooks(){
+        return bookService.getBooksData();
+    }
+    @ModelAttribute("popularBooks")
+    public List<Book> popularBooks(){
+        return bookService.getBooksData();
+    }
 
     @GetMapping("/")
     public String mainPage(){

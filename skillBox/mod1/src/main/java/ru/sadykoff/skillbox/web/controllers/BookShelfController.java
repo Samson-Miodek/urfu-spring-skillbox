@@ -40,7 +40,11 @@ public class BookShelfController {
 
     @PostMapping("/remove")
     public String removeBook(@RequestParam(value = "bookIdToRemove") Integer bookIdToRemove) {
-        bookService.removeBookById(bookIdToRemove);
+        try{
+            bookService.removeBookById(bookIdToRemove);
+        }catch (Exception e){
+            return "redirect:/books/shelf?error";
+        }
         return "redirect:/books/shelf";
     }
 

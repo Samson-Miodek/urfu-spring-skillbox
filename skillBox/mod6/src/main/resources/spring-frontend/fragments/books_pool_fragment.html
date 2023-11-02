@@ -7,9 +7,15 @@
         <div class="Card-content">
             <strong class="Card-title"><a href="#" th:text="${book.title}">>Техника</a>
             </strong>
-<!--            <div class="Card-description" th:text="${book.authorId}">Кондратенко Александр Петрович-->
-            <div class="Card-description">Кондратенко Александр Петрович
+
+            <div th:each="author: ${book.getAuthors()}">
+                <div class="Card-description" th:text="${author}">Кондратенко Александр Петрович</div>
             </div>
+
+            <div th:if="${book.getAuthors().size==0}">
+                <p>У книги нет авторов, тк в бд не указан авторы</p>
+            </div>
+
             <div class="Card-cost">
                 <span class="Card-priceOld" th:text="${book.discount}" >₽300.00</span>
                 <span class="Card-price" th:text="${book.price}">₽190.00</span>

@@ -1,9 +1,13 @@
 package com.example.MyBookShopApp.data.author;
 
+import com.example.MyBookShopApp.data.book.links.Book2AuthorEntity;
+import com.example.MyBookShopApp.data.book.links.Book2UserEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "author")
@@ -24,8 +28,19 @@ public class Author {
     @Column(columnDefinition = "TEXT")
     private String description;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "author",fetch = FetchType.LAZY)
+    private Set<Book2AuthorEntity> book2AuthorEntities;
 
     public Author() {
+    }
+
+    public Set<Book2AuthorEntity> getBook2AuthorEntities() {
+        return book2AuthorEntities;
+    }
+
+    public void setBook2AuthorEntities(Set<Book2AuthorEntity> book2AuthorEntities) {
+        this.book2AuthorEntities = book2AuthorEntities;
     }
 
     public Integer getId() {

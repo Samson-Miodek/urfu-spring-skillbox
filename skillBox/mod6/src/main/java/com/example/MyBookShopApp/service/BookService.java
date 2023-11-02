@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class BookService {
 
-    private BookRepository bookRepository;
+    private final BookRepository bookRepository;
 
 
     @Autowired
@@ -22,7 +22,7 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
-    public List<Book> getBooksData() {
+        public List<Book> getBooksData() {
         return bookRepository.findAll();
     }
 

@@ -23,6 +23,12 @@ public class BooksController {
     }
 
 
+    @GetMapping("/recommended")
+    @ResponseBody
+    public BooksPageDTO getBookRecommended(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit){
+        return new BooksPageDTO(bookService.getPageOfBooksData(offset,limit).getContent());
+    }
+
     @GetMapping("recent")
     public String recentPage() {
         return "books/recent";

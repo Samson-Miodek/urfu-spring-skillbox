@@ -1,7 +1,18 @@
 package com.example.MyBookShopApp.data.book;
 
+import com.example.MyBookShopApp.data.author.Author;
+import com.example.MyBookShopApp.data.book.links.Book2AuthorEntity;
+import com.example.MyBookShopApp.data.book.links.Book2UserEntity;
+import com.example.MyBookShopApp.data.book.links.Book2UserTypeEntity;
+import com.fasterxml.jackson.annotation.*;
+import liquibase.pro.packaged.A;
+
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Stream;
 
 @Entity
 @Table(name = "book")
@@ -27,10 +38,55 @@ public class Book {
     private String description;
     @Column(columnDefinition = "INT NOT NULL")
     private Integer price;
+    @JsonProperty("discountPrice")
     @Column(columnDefinition = "SMALLINT NOT NULL DEFAULT 0")
     private short discount;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "book", fetch = FetchType.LAZY)
+    private Set<Book2UserEntity> book2UserEntitySet;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "book", fetch = FetchType.EAGER)
+    private Set<Book2AuthorEntity> book2AuthorEntities;
+
+
     public Book() {
+    }
+
+//    @JsonGetter("authors")
+
+//    @JsonIgnore
+//    private List<Author> foo() {
+
+    //    }
+//
+    @JsonGetter("authors")
+    public List<String> getAuthors() {
+        System.out.println(id);
+        System.out.println(book2AuthorEntities.size());
+        System.out.println();
+        var l = new ArrayList<String>();
+        for (var a : this.book2AuthorEntities) {
+            l.add(a.getAuthor().getName());
+        }
+        return l;
+    }
+
+    public Set<Book2AuthorEntity> getBook2AuthorEntities() {
+        return book2AuthorEntities;
+    }
+
+    public void setBook2AuthorEntities(Set<Book2AuthorEntity> book2AuthorEntities) {
+        this.book2AuthorEntities = book2AuthorEntities;
+    }
+
+    public Set<Book2UserEntity> getBook2UserEntitySet() {
+        return book2UserEntitySet;
+    }
+
+    public void setBook2UserEntitySet(Set<Book2UserEntity> book2UserEntitySet) {
+        this.book2UserEntitySet = book2UserEntitySet;
     }
 
     public Integer getId() {
@@ -104,5 +160,7 @@ public class Book {
     public void setDiscount(short discount) {
         this.discount = discount;
     }
+
+
 }
 

@@ -43,12 +43,6 @@ public class MainPageController {
         return "index";
     }
 
-    @GetMapping("/books/recommended")
-    @ResponseBody
-    public BooksPageDTO getBookRecommended(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit){
-        return new BooksPageDTO(bookService.getPageOfBooksData(offset,limit).getContent());
-    }
-
 
     @ModelAttribute("searchWordDTO")
     public SearchWordDTO searchWordDTO(){

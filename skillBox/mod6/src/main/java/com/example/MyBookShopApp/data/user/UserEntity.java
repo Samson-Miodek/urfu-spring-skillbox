@@ -1,7 +1,10 @@
 package com.example.MyBookShopApp.data.user;
 
+import com.example.MyBookShopApp.data.book.links.Book2UserEntity;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -22,6 +25,20 @@ public class UserEntity {
 
     @Column(columnDefinition = "VARCHAR(255) NOT NULL")
     private String name;
+
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+    private Set<Book2UserEntity> user2bookEntitySet;
+
+    public UserEntity() {
+    }
+
+    public Set<Book2UserEntity> getUser2bookEntitySet() {
+        return user2bookEntitySet;
+    }
+
+    public void setUser2bookEntitySet(Set<Book2UserEntity> user2bookEntitySet) {
+        this.user2bookEntitySet = user2bookEntitySet;
+    }
 
     public int getId() {
         return id;
@@ -61,5 +78,17 @@ public class UserEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", hash='" + hash + '\'' +
+                ", regTime=" + regTime +
+                ", balance=" + balance +
+                ", name='" + name + '\'' +
+                ", user2bookEntitySet=" + user2bookEntitySet +
+                '}';
     }
 }

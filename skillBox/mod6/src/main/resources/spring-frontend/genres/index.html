@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Тут название страницы написать</title>
+    <title>Жанры</title>
     <meta name="description" content="Описание страницы">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
@@ -25,18 +25,21 @@
             <h1 class="Middle-title">Жанры
             </h1>
             <div class="Section">
-                <div class="Tags Tags_genres">
+                <div class="Tags Tags_genres" th:replace="~{fragments/genre_fragment :: genremenu(service=${genresService},parentid=${null})}">
+
+
                     <div class="Tags Tags_embed">
                         <div class="Tags-title">
                             <div class="Tag"><a href="/genres/slug.html">Лёгкое чтение<span class="undefined-amount">(15638)</span></a>
                             </div>
                         </div>
+
                         <div class="Tag"><a href="/genres/slug.html">Фантастика<span
                                 class="undefined-amount">(44333)</span></a>
                         </div>
                         <div class="Tag"><a href="/genres/slug.html">Боевики<span class="undefined-amount">(158)</span></a>
                         </div>
-                        <div class="Tags">
+                        <div class="Tags" >
                             <div class="Tags-title">
                                 <div class="Tag"><a href="/genres/slug.html">Детективы<span class="undefined-amount">(10)</span></a>
                                 </div>

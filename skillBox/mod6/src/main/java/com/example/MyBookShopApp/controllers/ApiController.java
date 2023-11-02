@@ -1,24 +1,42 @@
 package com.example.MyBookShopApp.controllers;
 
+import com.example.MyBookShopApp.data.book.Book;
 import com.example.MyBookShopApp.data.dto.BooksPageDTO;
 import com.example.MyBookShopApp.data.dto.SearchWordDTO;
 import com.example.MyBookShopApp.service.BookService;
 import com.example.MyBookShopApp.service.BooksRatingAndPopulatityService;
+import com.example.MyBookShopApp.service.GenresService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/api")
 public class ApiController {
 
     @Autowired
+    private GenresService genresService;
+    @Autowired
     private BookService bookService;
     @Autowired
     private BooksRatingAndPopulatityService booksRatingAndPopulatityService;
+
+    @GetMapping("/books/genre/{slug}")
+    @ResponseBody
+    public BooksPageDTO booksByGenre(@PathVariable(required = true, value = "slug") String slug, @RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit){
+        var genre = genresService.getBySlug(slug);
+        var b2g = genresService.getAllByGenre(offset,limit,genre).getContent();
+        var booksList = new ArrayList<Book>();
+
+        for (var b : b2g)
+            booksList.add(b.getBook());
+
+        return new BooksPageDTO(booksList);
+    }
 
     @GetMapping("/books/popular")
     @ResponseBody
@@ -46,4 +64,5 @@ public class ApiController {
     public BooksPageDTO getNextSearchPage(@PathVariable(required = true, value = "searchWord") SearchWordDTO searchWordDTO, @RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit){
         return new BooksPageDTO(bookService.getPageOfSearchResultBooks(searchWordDTO.getExample(),offset,limit).getContent());
     }
+
 }

@@ -1,5 +1,8 @@
 package com.example.MyBookShopApp.data.book.links;
 
+import com.example.MyBookShopApp.data.book.Book;
+import com.example.MyBookShopApp.data.genre.GenreEntity;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,9 +13,38 @@ public class Book2GenreEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(columnDefinition = "INT NOT NULL")
-    private int bookId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "book_id")
+    private Book book;
 
-    @Column(columnDefinition = "INT NOT NULL")
-    private int genreId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "genre_id")
+    private GenreEntity genre;
+
+    public Book2GenreEntity() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    public GenreEntity getGenre() {
+        return genre;
+    }
+
+    public void setGenre(GenreEntity genre) {
+        this.genre = genre;
+    }
 }

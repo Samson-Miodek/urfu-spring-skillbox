@@ -2,6 +2,7 @@ package com.example.MyBookShopApp.data.book;
 
 import com.example.MyBookShopApp.data.author.Author;
 import com.example.MyBookShopApp.data.book.links.Book2AuthorEntity;
+import com.example.MyBookShopApp.data.book.links.Book2GenreEntity;
 import com.example.MyBookShopApp.data.book.links.Book2UserEntity;
 import com.example.MyBookShopApp.data.book.links.Book2UserTypeEntity;
 import com.fasterxml.jackson.annotation.*;
@@ -49,6 +50,10 @@ public class Book {
     @OneToMany(mappedBy = "book", fetch = FetchType.EAGER)
     private Set<Book2AuthorEntity> book2AuthorEntities;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "book", fetch = FetchType.EAGER)
+    private Set<Book2GenreEntity> book2GenreEntities;
+
 //    B — количество пользователей, купивших книгу,
 //    C — количество пользователей, у которых книга находится в корзине, а
 //    K — количество пользователей, у которых книга отложена.
@@ -75,6 +80,16 @@ public class Book {
                 ", statK=" + statK +
                 ", statP=" + statP +
                 '}';
+    }
+
+
+
+    public Set<Book2GenreEntity> getBook2GenreEntities() {
+        return book2GenreEntities;
+    }
+
+    public void setBook2GenreEntities(Set<Book2GenreEntity> book2GenreEntities) {
+        this.book2GenreEntities = book2GenreEntities;
     }
 
     public int getStatB() {

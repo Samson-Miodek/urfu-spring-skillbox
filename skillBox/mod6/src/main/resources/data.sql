@@ -2306,113 +2306,9 @@ insert into user_contact (user_id, type, approved, code, code_trails, code_time,
 
 
 
--- insert into book2user (user_id, book_id, time, type_id) values (20, 495, '23.03.2006', 1);
--- insert into book2user (user_id, book_id, time, type_id) values (33, 500, '02.04.2023', 2);
--- insert into book2user (user_id, book_id, time, type_id) values (7, 894, '31.07.2007', 3);
--- insert into book2user (user_id, book_id, time, type_id) values (38, 595, '10.11.2019', 4);
--- insert into book2user (user_id, book_id, time, type_id) values (34, 715, '19.01.2021', 5);
--- insert into book2user (user_id, book_id, time, type_id) values (11, 817, '25.06.2022', 6);
--- insert into book2user (user_id, book_id, time, type_id) values (40, 545, '19.02.2007', 7);
--- insert into book2user (user_id, book_id, time, type_id) values (32, 97, '06.02.2015', 8);
--- insert into book2user (user_id, book_id, time, type_id) values (34, 474, '03.08.2010', 9);
--- insert into book2user (user_id, book_id, time, type_id) values (36, 679, '16.02.2002', 10);
--- insert into book2user (user_id, book_id, time, type_id) values (13, 915, '09.07.2023', 11);
--- insert into book2user (user_id, book_id, time, type_id) values (8, 788, '19.12.2002', 12);
--- insert into book2user (user_id, book_id, time, type_id) values (7, 13, '08.08.2023', 13);
--- insert into book2user (user_id, book_id, time, type_id) values (19, 897, '04.11.2004', 14);
--- insert into book2user (user_id, book_id, time, type_id) values (10, 109, '10.02.2018', 15);
--- insert into book2user (user_id, book_id, time, type_id) values (40, 32, '15.04.2018', 16);
--- insert into book2user (user_id, book_id, time, type_id) values (48, 592, '14.12.2009', 17);
--- insert into book2user (user_id, book_id, time, type_id) values (37, 583, '04.11.2013', 18);
--- insert into book2user (user_id, book_id, time, type_id) values (24, 448, '01.09.2001', 19);
--- insert into book2user (user_id, book_id, time, type_id) values (27, 544, '12.09.2007', 20);
--- insert into book2user (user_id, book_id, time, type_id) values (27, 539, '06.08.2008', 21);
--- insert into book2user (user_id, book_id, time, type_id) values (29, 572, '15.08.2019', 22);
--- insert into book2user (user_id, book_id, time, type_id) values (5, 413, '20.03.2007', 23);
--- insert into book2user (user_id, book_id, time, type_id) values (21, 568, '02.11.2005', 24);
--- insert into book2user (user_id, book_id, time, type_id) values (21, 981, '06.12.2008', 25);
--- insert into book2user (user_id, book_id, time, type_id) values (22, 464, '22.09.2018', 26);
--- insert into book2user (user_id, book_id, time, type_id) values (13, 971, '16.12.2019', 27);
--- insert into book2user (user_id, book_id, time, type_id) values (19, 924, '17.11.2013', 28);
--- insert into book2user (user_id, book_id, time, type_id) values (26, 925, '30.05.2021', 29);
--- insert into book2user (user_id, book_id, time, type_id) values (43, 457, '08.02.2002', 30);
--- insert into book2user (user_id, book_id, time, type_id) values (43, 480, '04.10.2012', 31);
--- insert into book2user (user_id, book_id, time, type_id) values (10, 238, '12.08.2023', 32);
--- insert into book2user (user_id, book_id, time, type_id) values (27, 24, '30.03.2009', 33);
--- insert into book2user (user_id, book_id, time, type_id) values (35, 107, '11.08.2020', 34);
--- insert into book2user (user_id, book_id, time, type_id) values (25, 590, '11.01.2020', 35);
--- insert into book2user (user_id, book_id, time, type_id) values (9, 821, '09.07.2007', 36);
--- insert into book2user (user_id, book_id, time, type_id) values (5, 897, '03.06.2017', 37);
--- insert into book2user (user_id, book_id, time, type_id) values (34, 845, '18.06.2003', 38);
--- insert into book2user (user_id, book_id, time, type_id) values (29, 28, '16.01.2004', 39);
--- insert into book2user (user_id, book_id, time, type_id) values (27, 761, '17.03.2016', 40);
--- insert into book2user (user_id, book_id, time, type_id) values (36, 887, '31.10.2020', 41);
--- insert into book2user (user_id, book_id, time, type_id) values (18, 843, '31.05.2017', 42);
--- insert into book2user (user_id, book_id, time, type_id) values (42, 230, '12.03.2021', 43);
--- insert into book2user (user_id, book_id, time, type_id) values (45, 156, '05.08.2001', 44);
--- insert into book2user (user_id, book_id, time, type_id) values (36, 516, '18.12.2022', 45);
--- insert into book2user (user_id, book_id, time, type_id) values (44, 440, '24.01.2001', 46);
--- insert into book2user (user_id, book_id, time, type_id) values (4, 164, '05.06.2009', 47);
--- insert into book2user (user_id, book_id, time, type_id) values (2, 293, '13.04.2001', 48);
--- insert into book2user (user_id, book_id, time, type_id) values (49, 340, '27.05.2013', 49);
--- insert into book2user (user_id, book_id, time, type_id) values (34, 824, '30.09.2021', 50);
 
 
-insert into book2user_type (name, code, id) values ('В корзине', 'CART', 1);
-insert into book2user_type (name, code, id) values ('Куплена', 'PAID', 2);
-insert into book2user_type (name, code, id) values ('Отложена', 'KEPT', 3);
-insert into book2user_type (name, code, id) values ('В архиве', 'ARCHIVED', 4);
 
-insert into book2user (user_id, book_id, time, type_id) values (1, 186, '05.02.2016', 3);
-insert into book2user (user_id, book_id, time, type_id) values (2, 186, '15.11.2007', 1);
-insert into book2user (user_id, book_id, time, type_id) values (3, 186, '29.05.2001', 1);
-insert into book2user (user_id, book_id, time, type_id) values (4, 186, '05.12.2010', 4);
-insert into book2user (user_id, book_id, time, type_id) values (5, 186, '08.11.2008', 2);
-insert into book2user (user_id, book_id, time, type_id) values (6, 186, '14.04.2021', 3);
-insert into book2user (user_id, book_id, time, type_id) values (7, 328, '06.11.2010', 2);
-insert into book2user (user_id, book_id, time, type_id) values (8, 328, '15.12.2008', 2);
-insert into book2user (user_id, book_id, time, type_id) values (9, 328, '06.04.2009', 2);
-insert into book2user (user_id, book_id, time, type_id) values (10, 328, '04.10.2012', 2);
-insert into book2user (user_id, book_id, time, type_id) values (11, 328, '19.01.2014', 4);
-insert into book2user (user_id, book_id, time, type_id) values (12, 396, '03.07.2002', 4);
-insert into book2user (user_id, book_id, time, type_id) values (13, 436, '15.09.2018', 4);
-insert into book2user (user_id, book_id, time, type_id) values (14, 436, '03.03.2006', 2);
-insert into book2user (user_id, book_id, time, type_id) values (15, 436, '27.07.2005', 2);
-insert into book2user (user_id, book_id, time, type_id) values (16, 436, '23.10.2020', 3);
-insert into book2user (user_id, book_id, time, type_id) values (17, 436, '14.02.2021', 3);
-insert into book2user (user_id, book_id, time, type_id) values (18, 571, '26.07.2016', 3);
-insert into book2user (user_id, book_id, time, type_id) values (19, 236, '11.09.2017', 2);
-insert into book2user (user_id, book_id, time, type_id) values (20, 916, '14.12.2011', 1);
-insert into book2user (user_id, book_id, time, type_id) values (21, 37, '28.11.2009', 4);
-insert into book2user (user_id, book_id, time, type_id) values (22, 893, '07.03.2021', 1);
-insert into book2user (user_id, book_id, time, type_id) values (23, 18, '15.01.2010', 3);
-insert into book2user (user_id, book_id, time, type_id) values (24, 118, '25.12.2022', 4);
-insert into book2user (user_id, book_id, time, type_id) values (25, 426, '16.02.2014', 3);
-insert into book2user (user_id, book_id, time, type_id) values (26, 166, '11.08.2022', 1);
-insert into book2user (user_id, book_id, time, type_id) values (27, 706, '25.05.2011', 3);
-insert into book2user (user_id, book_id, time, type_id) values (28, 423, '21.08.2019', 2);
-insert into book2user (user_id, book_id, time, type_id) values (29, 337, '01.11.2009', 4);
-insert into book2user (user_id, book_id, time, type_id) values (30, 988, '08.06.2005', 1);
-insert into book2user (user_id, book_id, time, type_id) values (31, 285, '18.04.2012', 1);
-insert into book2user (user_id, book_id, time, type_id) values (32, 80, '01.06.2023', 3);
-insert into book2user (user_id, book_id, time, type_id) values (33, 48, '22.05.2002', 4);
-insert into book2user (user_id, book_id, time, type_id) values (34, 953, '02.12.2006', 1);
-insert into book2user (user_id, book_id, time, type_id) values (35, 655, '23.09.2019', 3);
-insert into book2user (user_id, book_id, time, type_id) values (36, 676, '25.04.2008', 4);
-insert into book2user (user_id, book_id, time, type_id) values (37, 414, '20.06.2009', 2);
-insert into book2user (user_id, book_id, time, type_id) values (38, 471, '30.07.2001', 1);
-insert into book2user (user_id, book_id, time, type_id) values (39, 838, '30.05.2010', 3);
-insert into book2user (user_id, book_id, time, type_id) values (40, 838, '27.08.2001', 3);
-insert into book2user (user_id, book_id, time, type_id) values (41, 838, '09.02.2019', 2);
-insert into book2user (user_id, book_id, time, type_id) values (42, 838, '29.08.2016', 1);
-insert into book2user (user_id, book_id, time, type_id) values (43, 838, '23.04.2007', 4);
-insert into book2user (user_id, book_id, time, type_id) values (44, 838, '13.04.2003', 4);
-insert into book2user (user_id, book_id, time, type_id) values (45, 855, '27.04.2006', 2);
-insert into book2user (user_id, book_id, time, type_id) values (46, 823, '27.08.2023', 3);
-insert into book2user (user_id, book_id, time, type_id) values (47, 938, '13.09.2017', 3);
-insert into book2user (user_id, book_id, time, type_id) values (48, 643, '17.09.2005', 3);
-insert into book2user (user_id, book_id, time, type_id) values (49, 401, '28.10.2015', 3);
-insert into book2user (user_id, book_id, time, type_id) values (50, 503, '20.07.2006', 1);
 
 
 insert into balance_transaction (time, user_id, value, book_id, description) values ('16.05.2006', 1, -124, 741, 'Зачисление от фывафыва');
@@ -2465,6 +2361,12 @@ insert into balance_transaction (time, user_id, value, book_id, description) val
 insert into balance_transaction (time, user_id, value, book_id, description) values ('18.04.2021', 48, 475, 33, 'Зачисление от фывафыва');
 insert into balance_transaction (time, user_id, value, book_id, description) values ('21.07.2010', 49, 559, 853, 'Зачисление от фывафыва');
 insert into balance_transaction (time, user_id, value, book_id, description) values ('25.04.2023', 50, 615, 73, 'Списание на фывафывафыа');
+
+
+insert into book2user_type (name, code, id) values ('В корзине', 'CART', 1);
+insert into book2user_type (name, code, id) values ('Куплена', 'PAID', 2);
+insert into book2user_type (name, code, id) values ('Отложена', 'KEPT', 3);
+insert into book2user_type (name, code, id) values ('В архиве', 'ARCHIVED', 4);
 
 
 

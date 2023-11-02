@@ -1,6 +1,8 @@
 package com.example.MyBookShopApp.data.book.links;
 
 
+import com.example.MyBookShopApp.data.enums.B2UType;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -26,8 +28,9 @@ public class Book2UserTypeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(columnDefinition = "VARCHAR(255) NOT NULL")
-    private String code;
+//    @ElementCollection(targetClass = B2UType.class, fetch = FetchType.EAGER)
+    @Enumerated(EnumType.STRING)
+    private B2UType code;
 
     @Column(columnDefinition = "VARCHAR(255) NOT NULL")
     private String name;
@@ -51,11 +54,11 @@ public class Book2UserTypeEntity {
         this.id = id;
     }
 
-    public String getCode() {
+    public B2UType getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(B2UType code) {
         this.code = code;
     }
 

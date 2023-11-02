@@ -38,7 +38,6 @@ public class Book {
     private String description;
     @Column(columnDefinition = "INT NOT NULL")
     private Integer price;
-    @JsonProperty("discountPrice")
     @Column(columnDefinition = "SMALLINT NOT NULL DEFAULT 0")
     private short discount;
 
@@ -50,8 +49,69 @@ public class Book {
     @OneToMany(mappedBy = "book", fetch = FetchType.EAGER)
     private Set<Book2AuthorEntity> book2AuthorEntities;
 
+//    B — количество пользователей, купивших книгу,
+//    C — количество пользователей, у которых книга находится в корзине, а
+//    K — количество пользователей, у которых книга отложена.
+
+    @Column(columnDefinition = "integer default 0")
+    private int statB;
+    @Column(columnDefinition = "integer default 0")
+    private int statC;
+    @Column(columnDefinition = "integer default 0")
+    private int statK;
+    @Column(columnDefinition = "Decimal(10,5) default '0'")
+    private double statP;
+
 
     public Book() {
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", statB=" + statB +
+                ", statC=" + statC +
+                ", statK=" + statK +
+                ", statP=" + statP +
+                '}';
+    }
+
+    public int getStatB() {
+        return statB;
+    }
+
+    public void setStatB(int statB) {
+        this.statB = statB;
+    }
+
+    public int getStatC() {
+        return statC;
+    }
+
+    public void setStatC(int statC) {
+        this.statC = statC;
+    }
+
+    public int getStatK() {
+        return statK;
+    }
+
+    public void setStatK(int statK) {
+        this.statK = statK;
+    }
+
+    public double getStatP() {
+        return statP;
+    }
+
+    public void setStatP(double statP) {
+        this.statP = statP;
+    }
+
+    @JsonProperty("discountPrice")
+    public int getDiscountPrice() {
+        return price - price * discount / 100;
     }
 
     @JsonGetter("authors")

@@ -3,6 +3,7 @@ package com.example.MyBookShopApp.controllers;
 import com.example.MyBookShopApp.data.book.Book;
 import com.example.MyBookShopApp.data.dto.BooksPageDTO;
 import com.example.MyBookShopApp.service.BookService;
+import com.example.MyBookShopApp.service.BooksRatingAndPopulatityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,10 @@ import java.util.List;
 public class BooksController {
 
     private BookService bookService;
+
+    @Autowired
+    private BooksRatingAndPopulatityService booksRatingAndPopulatityService;
+
 
     @Autowired
     public BooksController(BookService bookService) {
@@ -35,7 +40,7 @@ public class BooksController {
 
     @ModelAttribute("booksList")
     public List<Book> bookList() {
-        return bookService.getPageOfBooksData(0, 5).getContent();
+        return booksRatingAndPopulatityService.getPageOfPopularBooks(0, 5).getContent();
     }
 
     @ModelAttribute("recentBookList")

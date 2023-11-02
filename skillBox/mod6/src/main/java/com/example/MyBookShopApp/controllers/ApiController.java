@@ -3,6 +3,7 @@ package com.example.MyBookShopApp.controllers;
 import com.example.MyBookShopApp.data.dto.BooksPageDTO;
 import com.example.MyBookShopApp.data.dto.SearchWordDTO;
 import com.example.MyBookShopApp.service.BookService;
+import com.example.MyBookShopApp.service.BooksRatingAndPopulatityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,12 +17,13 @@ public class ApiController {
 
     @Autowired
     private BookService bookService;
-
+    @Autowired
+    private BooksRatingAndPopulatityService booksRatingAndPopulatityService;
 
     @GetMapping("/books/popular")
     @ResponseBody
     public BooksPageDTO popular(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit) {
-        return new BooksPageDTO(bookService.getPageOfBooksData(offset, limit).getContent());
+        return new BooksPageDTO(booksRatingAndPopulatityService.getPageOfPopularBooks(offset, limit).getContent());
     }
 
     @GetMapping("/books/recommended")
@@ -29,6 +31,7 @@ public class ApiController {
     public BooksPageDTO recommended(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit) {
         return new BooksPageDTO(bookService.getPageOfBooksData(offset, limit).getContent());
     }
+
     @GetMapping("/books/recent")
     @ResponseBody
     public BooksPageDTO getNextRecentPage(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit, @RequestParam("from") String fromPattern, @RequestParam("to") String toPattern) throws ParseException {
@@ -37,7 +40,6 @@ public class ApiController {
         var to = simpleDateFormat.parse(toPattern);
         return new BooksPageDTO(bookService.getPageOfBooksDataByPubDate(from, to, offset, limit).getContent());
     }
-
 
     @GetMapping("/search/{searchWord}")
     @ResponseBody

@@ -17,9 +17,6 @@ public class Book2UserEntity {
     @Column(columnDefinition = "TIMESTAMP NOT NULL")
     private LocalDateTime time;
 
-//    @Column(columnDefinition = "INT NOT NULL")
-//    private int typeId;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type_id",nullable = false)
     private Book2UserTypeEntity type;

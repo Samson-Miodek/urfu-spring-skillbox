@@ -40,10 +40,4 @@ public class SearchController {
 
         return "search/index";
     }
-
-    @GetMapping("/page/{searchWord}")
-    @ResponseBody
-    public BooksPageDTO getNextSearchPage(@PathVariable(required = true, value = "searchWord") SearchWordDTO searchWordDTO, @RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit){
-        return new BooksPageDTO(bookService.getPageOfSearchResultBooks(searchWordDTO.getExample(),offset,limit).getContent());
-    }
 }

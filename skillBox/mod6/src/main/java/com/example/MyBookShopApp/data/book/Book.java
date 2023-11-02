@@ -54,23 +54,13 @@ public class Book {
     public Book() {
     }
 
-//    @JsonGetter("authors")
-
-//    @JsonIgnore
-//    private List<Author> foo() {
-
-    //    }
-//
     @JsonGetter("authors")
     public List<String> getAuthors() {
-        System.out.println(id);
-        System.out.println(book2AuthorEntities.size());
-        System.out.println();
-        var l = new ArrayList<String>();
-        for (var a : this.book2AuthorEntities) {
-            l.add(a.getAuthor().getName());
+        var authors = new ArrayList<String>();
+        for (var b2a : this.book2AuthorEntities) {
+            authors.add(b2a.getAuthor().getName());
         }
-        return l;
+        return authors;
     }
 
     public Set<Book2AuthorEntity> getBook2AuthorEntities() {

@@ -22,13 +22,6 @@ public class BooksController {
         this.bookService = bookService;
     }
 
-
-    @GetMapping("/recommended")
-    @ResponseBody
-    public BooksPageDTO getBookRecommended(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit){
-        return new BooksPageDTO(bookService.getPageOfBooksData(offset,limit).getContent());
-    }
-
     @GetMapping("recent")
     public String recentPage() {
         return "books/recent";
@@ -39,20 +32,6 @@ public class BooksController {
         return "books/popular";
     }
 
-    @GetMapping("/page/recent")
-    @ResponseBody
-    public BooksPageDTO getNextRecentPage(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit, @RequestParam("from") String fromPattern, @RequestParam("to") String toPattern) throws ParseException {
-        var simpleDateFormat = new SimpleDateFormat("dd.MM.yyy");
-        var from = simpleDateFormat.parse(fromPattern);
-        var to = simpleDateFormat.parse(toPattern);
-        return new BooksPageDTO(bookService.getPageOfBooksDataByPubDate(from, to, offset, limit).getContent());
-    }
-
-    @GetMapping("/page/popular")
-    @ResponseBody
-    public BooksPageDTO getNextPopularPage(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit) {
-        return new BooksPageDTO(bookService.getPageOfBooksData(offset, limit).getContent());
-    }
 
     @ModelAttribute("booksList")
     public List<Book> bookList() {

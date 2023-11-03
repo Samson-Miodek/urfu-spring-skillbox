@@ -3,8 +3,10 @@ package com.example.MyBookShopApp.service;
 import com.example.MyBookShopApp.data.author.Author;
 import com.example.MyBookShopApp.data.book.Book;
 import com.example.MyBookShopApp.data.book.links.Book2AuthorEntity;
+import com.example.MyBookShopApp.data.tags.Tag;
 import com.example.MyBookShopApp.repository.AuthorRepository;
 import com.example.MyBookShopApp.repository.Book2AuthorEntityRepository;
+import com.example.MyBookShopApp.repository.Book2TagRepository;
 import com.example.MyBookShopApp.repository.BookRepository;
 import liquibase.pro.packaged.B;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,8 @@ public class BookService {
     private Book2AuthorEntityRepository book2AuthorEntityRepository;
     @Autowired
     private AuthorRepository authorRepository;
+    @Autowired
+    private Book2TagRepository book2TagRepository;
 
     @Autowired
     public BookService(BookRepository bookRepository) {
@@ -89,6 +93,17 @@ public class BookService {
         {
             books.add(b2aitem.getBook());
         }
+
+        return books;
+    }
+
+    public List<Book> getBooksByTag(Tag tag,Integer offset, Integer limit) {
+        var nextPage = PageRequest.of(offset,limit);
+        var b2t = book2TagRepository.findByTag(tag,nextPage).getContent();
+        var books = new ArrayList<Book>();
+
+        for (var b2tItem : b2t)
+            books.add(b2tItem.getBook());
 
         return books;
     }

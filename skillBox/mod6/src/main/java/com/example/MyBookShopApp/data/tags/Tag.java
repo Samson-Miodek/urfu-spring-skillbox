@@ -14,12 +14,21 @@ public class Tag {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String slug;
 
     @JsonIgnore
     @OneToMany(mappedBy = "tag", fetch = FetchType.LAZY)
     private Set<Book2Tag> book2Tags;
 
     public Tag() {
+    }
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
     }
 
     public String getName() {

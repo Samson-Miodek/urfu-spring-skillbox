@@ -6,8 +6,10 @@ import com.example.MyBookShopApp.data.dto.SearchWordDTO;
 import com.example.MyBookShopApp.service.BookService;
 import com.example.MyBookShopApp.service.BooksRatingAndPopulatityService;
 import com.example.MyBookShopApp.service.GenresService;
+import com.example.MyBookShopApp.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
@@ -24,6 +26,8 @@ public class ApiController {
     private BookService bookService;
     @Autowired
     private BooksRatingAndPopulatityService booksRatingAndPopulatityService;
+    @Autowired
+    private TagService tagService;
 
     @GetMapping("/books/genre/{slug}")
     @ResponseBody
@@ -70,5 +74,16 @@ public class ApiController {
     public BooksPageDTO getAuthorBooks(@PathVariable(required = true, value = "authorSlug") String authorSlug, @RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit) {
         return new BooksPageDTO(bookService.getPageOfBooksByAuthorSlug(authorSlug, offset, limit));
 
+    }
+
+
+    @GetMapping("/books/tag/{slug}")
+    @ResponseBody
+    public BooksPageDTO tags(@PathVariable String slug,@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit){
+
+        var tag = tagService.getTagBySlug(slug);
+        var booksList = bookService.getBooksByTag(tag,offset,limit);
+
+        return new BooksPageDTO(booksList);
     }
 }

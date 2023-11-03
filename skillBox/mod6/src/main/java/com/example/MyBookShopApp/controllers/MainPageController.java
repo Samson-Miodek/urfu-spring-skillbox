@@ -1,17 +1,14 @@
 package com.example.MyBookShopApp.controllers;
 
 import com.example.MyBookShopApp.data.book.Book;
-import com.example.MyBookShopApp.data.dto.BooksPageDTO;
 import com.example.MyBookShopApp.data.dto.SearchWordDTO;
 import com.example.MyBookShopApp.data.tags.Tag;
 import com.example.MyBookShopApp.service.BookService;
-import com.example.MyBookShopApp.service.TagCloudService;
+import com.example.MyBookShopApp.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Map;
@@ -19,7 +16,7 @@ import java.util.Map;
 @Controller
 public class MainPageController {
     @Autowired
-    private TagCloudService tagCloudService;
+    private TagService tagCloudService;
     private final BookService bookService;
 
 

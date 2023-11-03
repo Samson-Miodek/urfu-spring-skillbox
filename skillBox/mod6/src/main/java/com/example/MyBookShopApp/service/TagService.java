@@ -11,11 +11,15 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class TagCloudService {
+public class TagService {
     @Autowired
     private TagRepository tagRepository;
     @Autowired
     private Book2TagRepository book2TagRepository;
+
+    public Tag getTagBySlug(String slug){
+        return tagRepository.findBySlug(slug);
+    }
 
     public Map<Tag, String> getTagCloud() {
         var tags = tagRepository.findAll();

@@ -3,7 +3,7 @@
 <div class="Tags" id="tags" th:fragment="cloud">
 
         <div class="Tag" th:class="'Tag '+${cloudItem.value}" th:each="cloudItem : ${tagcloud}">
-            <a href="/tags/index.html" th:text="${cloudItem.key.name}">современная литература</a>
+            <a href="/tags/index.html" th:href="'/tags/'+${cloudItem.key.slug}"  th:text="${cloudItem.key.name}">современная литература</a>
         </div>
 </div>
 </html>

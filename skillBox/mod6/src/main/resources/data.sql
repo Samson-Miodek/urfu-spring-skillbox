@@ -1196,6 +1196,25 @@ insert into genre (slug, name) values ('genre-881-oel', 'Action');
 insert into genre (slug, name) values ('genre-411-yso', 'Adventure');
 insert into genre (slug, name) values ('genre-228-war', 'War');
 
+
+insert into genre (id,parent_id,slug, name) values (9,1,'genre-228-war', 'Sub-Comedy1');
+insert into genre (id,parent_id,slug, name) values (10,1,'genre-228-war', 'Sub-Comedy2');
+insert into genre (id,parent_id,slug, name) values (11,1,'genre-228-war', 'Sub-Comedy3');
+insert into genre (id,parent_id,slug, name) values (12,1,'genre-228-war', 'Sub-Comedy4');
+insert into genre (id,parent_id,slug, name) values (13,1,'genre-228-war', 'Sub-Comedy5');
+
+insert into genre (id,parent_id,slug, name) values (14,9,'genre-228-war', 'Sub-Sub-Comedy1');
+insert into genre (id,parent_id,slug, name) values (15,9,'genre-228-war', 'Sub-Sub-Comedy2');
+insert into genre (id,parent_id,slug, name) values (16,9,'genre-228-war', 'Sub-Sub-Comedy3');
+
+
+insert into genre (id,parent_id,slug, name) values (17,14,'genre-228-war', 'Sub-Sub-Sub-Comedy1');
+insert into genre (id,parent_id,slug, name) values (18,14,'genre-228-war', 'Sub-Sub-Sub-Comedy2');
+insert into genre (id,parent_id,slug, name) values (19,14,'genre-228-war', 'Sub-Sub-Sub-Comedy3');
+
+
+
+
 insert into book2genre (book_id, genre_id) values (1, 8);
 insert into book2genre (book_id, genre_id) values (2, 2);
 insert into book2genre (book_id, genre_id) values (3, 1);

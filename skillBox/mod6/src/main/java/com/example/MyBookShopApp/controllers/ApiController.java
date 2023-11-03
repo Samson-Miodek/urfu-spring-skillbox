@@ -27,9 +27,9 @@ public class ApiController {
 
     @GetMapping("/books/genre/{slug}")
     @ResponseBody
-    public BooksPageDTO booksByGenre(@PathVariable(required = true, value = "slug") String slug, @RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit){
+    public BooksPageDTO booksByGenre(@PathVariable(required = true, value = "slug") String slug, @RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit) {
         var genre = genresService.getBySlug(slug);
-        var b2g = genresService.getAllByGenre(offset,limit,genre).getContent();
+        var b2g = genresService.getAllByGenre(offset, limit, genre).getContent();
         var booksList = new ArrayList<Book>();
 
         for (var b : b2g)
@@ -61,13 +61,14 @@ public class ApiController {
 
     @GetMapping("/search/{searchWord}")
     @ResponseBody
-    public BooksPageDTO getNextSearchPage(@PathVariable(required = true, value = "searchWord") SearchWordDTO searchWordDTO, @RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit){
-        return new BooksPageDTO(bookService.getPageOfSearchResultBooks(searchWordDTO.getExample(),offset,limit).getContent());
-    }
-    @GetMapping("/books/author/{authorSlug}")
-    @ResponseBody
-    public BooksPageDTO getAuthorBooks(@PathVariable(required = true, value = "authorSlug") String authorSlug, @RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit){
-        return new BooksPageDTO(bookService.getPageOfBooksByAuthorSlug(authorSlug,offset,limit));
+    public BooksPageDTO getNextSearchPage(@PathVariable(required = true, value = "searchWord") SearchWordDTO searchWordDTO, @RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit) {
+        return new BooksPageDTO(bookService.getPageOfSearchResultBooks(searchWordDTO.getExample(), offset, limit).getContent());
     }
 
+    @GetMapping("/books/author/{authorSlug}")
+    @ResponseBody
+    public BooksPageDTO getAuthorBooks(@PathVariable(required = true, value = "authorSlug") String authorSlug, @RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit) {
+        return new BooksPageDTO(bookService.getPageOfBooksByAuthorSlug(authorSlug, offset, limit));
+
+    }
 }

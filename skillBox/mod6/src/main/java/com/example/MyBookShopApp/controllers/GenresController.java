@@ -41,12 +41,12 @@ public class GenresController {
         for (var b : b2g)
             booksList.add(b.getBook());
 
+        if(genre == null)
+            return "redirect:/genres";
+
         model.addAttribute("genre",genre);
         model.addAttribute("booksList",booksList);
 
-        System.out.println(genre);
-        System.out.println(genresService.getAllByGenre(0,5,genre).getContent().size());
-        System.out.println();
         return "genres/slug";
     }
 }

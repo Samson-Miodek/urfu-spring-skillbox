@@ -19,9 +19,15 @@ public class AuthorService {
         this.authorRepository = authorRepository;
     }
 
-    public Map<String, List<Author>> getAuthorsMap(){
+    public Map<String, List<Author>> getAuthorsMap() {
         var authors = authorRepository.findAll();
 
-        return authors.stream().collect(Collectors.groupingBy((Author a)->{return a.getName().substring(0,1);}));
+        return authors.stream().collect(Collectors.groupingBy((Author a) -> {
+            return a.getName().substring(0, 1);
+        }));
+    }
+
+    public Author getAuthorBySlug(String slug) {
+        return authorRepository.findBySlug(slug);
     }
 }

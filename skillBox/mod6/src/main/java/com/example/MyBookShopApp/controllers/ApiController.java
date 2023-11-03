@@ -64,5 +64,10 @@ public class ApiController {
     public BooksPageDTO getNextSearchPage(@PathVariable(required = true, value = "searchWord") SearchWordDTO searchWordDTO, @RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit){
         return new BooksPageDTO(bookService.getPageOfSearchResultBooks(searchWordDTO.getExample(),offset,limit).getContent());
     }
+    @GetMapping("/books/author/{authorSlug}")
+    @ResponseBody
+    public BooksPageDTO getAuthorBooks(@PathVariable(required = true, value = "authorSlug") String authorSlug, @RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit){
+        return new BooksPageDTO(bookService.getPageOfBooksByAuthorSlug(authorSlug,offset,limit));
+    }
 
 }

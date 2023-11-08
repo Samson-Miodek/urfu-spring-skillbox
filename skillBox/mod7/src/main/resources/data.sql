@@ -1197,20 +1197,20 @@ insert into genre (slug, name) values ('genre-411-yso', 'Adventure');
 insert into genre (slug, name) values ('genre-228-war', 'War');
 
 
-insert into genre (id,parent_id,slug, name) values (9,1,'genre-228-war', 'Sub-Comedy1');
-insert into genre (id,parent_id,slug, name) values (10,1,'genre-228-war', 'Sub-Comedy2');
-insert into genre (id,parent_id,slug, name) values (11,1,'genre-228-war', 'Sub-Comedy3');
-insert into genre (id,parent_id,slug, name) values (12,1,'genre-228-war', 'Sub-Comedy4');
-insert into genre (id,parent_id,slug, name) values (13,1,'genre-228-war', 'Sub-Comedy5');
+insert into genre (id,parent_id,slug, name) values (9,1,'genre-22111234c128-war', 'Sub-Comedy1');
+insert into genre (id,parent_id,slug, name) values (10,1,'genre-221ecfr238-war', 'Sub-Comedy2');
+insert into genre (id,parent_id,slug, name) values (11,1,'genre-212312312312328-war', 'Sub-Comedy3');
+insert into genre (id,parent_id,slug, name) values (12,1,'genre-22123cqrwe123213128-war', 'Sub-Comedy4');
+insert into genre (id,parent_id,slug, name) values (13,1,'genre-2231231sdf8-war', 'Sub-Comedy5');
 
-insert into genre (id,parent_id,slug, name) values (14,9,'genre-228-war', 'Sub-Sub-Comedy1');
-insert into genre (id,parent_id,slug, name) values (15,9,'genre-228-war', 'Sub-Sub-Comedy2');
-insert into genre (id,parent_id,slug, name) values (16,9,'genre-228-war', 'Sub-Sub-Comedy3');
+insert into genre (id,parent_id,slug, name) values (14,9,'genre-2sdfsdf28-war', 'Sub-Sub-Comedy1');
+insert into genre (id,parent_id,slug, name) values (15,9,'genre-2sadfsafd28-war', 'Sub-Sub-Comedy2');
+insert into genre (id,parent_id,slug, name) values (16,9,'genre-22asdfasdf8-war', 'Sub-Sub-Comedy3');
 
 
-insert into genre (id,parent_id,slug, name) values (17,14,'genre-228-war', 'Sub-Sub-Sub-Comedy1');
-insert into genre (id,parent_id,slug, name) values (18,14,'genre-228-war', 'Sub-Sub-Sub-Comedy2');
-insert into genre (id,parent_id,slug, name) values (19,14,'genre-228-war', 'Sub-Sub-Sub-Comedy3');
+insert into genre (id,parent_id,slug, name) values (17,14,'genre-12c3228-war', 'Sub-Sub-Sub-Comedy1');
+insert into genre (id,parent_id,slug, name) values (18,14,'genre-2c3465yt28-war', 'Sub-Sub-Sub-Comedy2');
+insert into genre (id,parent_id,slug, name) values (19,14,'genre-22c1234c8-war', 'Sub-Sub-Sub-Comedy3');
 
 
 

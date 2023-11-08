@@ -2,14 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <div class="Cards Cards_refresh" th:fragment="pool">
     <div class="Card" th:each="book: ${booksList}">
-        <div class="Card-picture"><a href="#" th:href="${book.id}"><img src="/assets/img/content/main/card.jpg" th:src="${book.image}" alt="card.jpg"/></a>
+        <div class="Card-picture">
+            <a href="#" th:href="@{'/books/'+${book.slug}}">
+            <img src="/assets/img/content/main/card.jpg" th:src="${book.image}" alt="card.jpg"/></a>
         </div>
         <div class="Card-content">
             <strong class="Card-title"><a href="#" th:text="${book.title}">>Техника</a>
             </strong>
 
             <div th:each="author: ${book.getAuthors()}">
-                <div class="Card-description" th:text="${author}">Кондратенко Александр Петрович</div>
+                <div class="Card-description" th:text="${author.name}">Кондратенко Александр Петрович</div>
             </div>
 
             <div th:if="${book.getAuthors().size==0}">

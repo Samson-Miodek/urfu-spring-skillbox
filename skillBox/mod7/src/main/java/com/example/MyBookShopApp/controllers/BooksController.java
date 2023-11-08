@@ -6,6 +6,7 @@ import com.example.MyBookShopApp.service.BookService;
 import com.example.MyBookShopApp.service.BooksRatingAndPopulatityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
@@ -50,4 +51,16 @@ public class BooksController {
         var to = simpleDateFormat.parse("01.01.2016");
         return bookService.getPageOfBooksDataByPubDate(from, to, 0, 10).getContent();
     }
+
+    @GetMapping("/{slug}")
+    private String getBookBySlug(@PathVariable String slug, Model model){
+        var book = bookService.findBySlug(slug);
+
+        System.out.println(book.getBook2AuthorEntities());
+
+
+        model.addAttribute("book",book);
+        return "books/slug";
+    }
+
 }

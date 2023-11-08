@@ -1,5 +1,6 @@
 package com.example.MyBookShopApp.data.book;
 
+import com.example.MyBookShopApp.data.author.Author;
 import com.example.MyBookShopApp.data.book.links.*;
 import com.fasterxml.jackson.annotation.*;
 
@@ -134,10 +135,10 @@ public class Book {
     }
 
     @JsonGetter("authors")
-    public List<String> getAuthors() {
-        var authors = new ArrayList<String>();
+    public List<Author> getAuthors() {
+        var authors = new ArrayList<Author>();
         for (var b2a : this.book2AuthorEntities) {
-            authors.add(b2a.getAuthor().getName());
+            authors.add(b2a.getAuthor());
         }
         return authors;
     }

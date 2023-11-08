@@ -107,4 +107,8 @@ public class BookService {
 
         return books;
     }
+
+    public Book findBySlug(String slug) {
+        return bookRepository.findBySlug(slug);
+    }
 }

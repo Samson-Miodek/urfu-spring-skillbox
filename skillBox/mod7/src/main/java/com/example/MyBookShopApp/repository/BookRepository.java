@@ -43,4 +43,6 @@ public interface BookRepository extends JpaRepository<Book,Integer> {
     @Modifying
     @Query(value = "update book set statp=0 where statp is null;update book set statb=0 where statb is null;update book set statc=0 where statc is null;update book set statk=0 where statk is null;", nativeQuery = true)
     void updNullStat();
+
+    Book findBySlug(String slug);
 }

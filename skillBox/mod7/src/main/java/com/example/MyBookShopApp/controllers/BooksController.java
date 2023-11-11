@@ -2,6 +2,7 @@ package com.example.MyBookShopApp.controllers;
 
 import com.example.MyBookShopApp.data.book.Book;
 import com.example.MyBookShopApp.data.dto.BooksPageDTO;
+import com.example.MyBookShopApp.service.BookRatingService;
 import com.example.MyBookShopApp.service.BookService;
 import com.example.MyBookShopApp.service.BooksRatingAndPopulatityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class BooksController {
     private BookService bookService;
 
     @Autowired
+    private BookRatingService bookRatingService;
+
+    @Autowired
     private BooksRatingAndPopulatityService booksRatingAndPopulatityService;
 
 
@@ -29,22 +33,19 @@ public class BooksController {
     }
 
     @GetMapping("recent")
-    public String recentPage() {
+    public String recentPage(Model model) throws ParseException {
+        model.addAttribute("recentBookList",recentBookList());
         return "books/recent";
     }
 
     @GetMapping("popular")
-    public String popularPage() {
+    public String popularPage(Model model) {
+        model.addAttribute("booksList",booksRatingAndPopulatityService.getPageOfPopularBooks(0, 5).getContent());
         return "books/popular";
     }
 
 
-    @ModelAttribute("booksList")
-    public List<Book> bookList() {
-        return booksRatingAndPopulatityService.getPageOfPopularBooks(0, 5).getContent();
-    }
 
-    @ModelAttribute("recentBookList")
     public List<Book> recentBookList() throws ParseException {
         var simpleDateFormat = new SimpleDateFormat("dd.MM.yyy");
         var from = simpleDateFormat.parse("01.01.2000");
@@ -56,10 +57,12 @@ public class BooksController {
     private String getBookBySlug(@PathVariable String slug, Model model){
         var book = bookService.findBySlug(slug);
 
-        System.out.println(book.getBook2AuthorEntities());
+        var bookRatingDTO = bookRatingService.getBookRating(book);
 
 
         model.addAttribute("book",book);
+        model.addAttribute("IsTagsEmpty",book.getBook2Tags()==null);
+        model.addAttribute("rating",bookRatingDTO);
         return "books/slug";
     }
 

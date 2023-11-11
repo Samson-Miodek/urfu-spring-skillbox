@@ -1,5 +1,6 @@
 package com.example.MyBookShopApp.controllers;
 
+import com.example.MyBookShopApp.data.ApiResponse;
 import com.example.MyBookShopApp.data.book.Book;
 import com.example.MyBookShopApp.data.dto.BooksPageDTO;
 import com.example.MyBookShopApp.data.dto.SearchWordDTO;
@@ -7,7 +8,9 @@ import com.example.MyBookShopApp.service.BookService;
 import com.example.MyBookShopApp.service.BooksRatingAndPopulatityService;
 import com.example.MyBookShopApp.service.GenresService;
 import com.example.MyBookShopApp.service.TagService;
+import jdk.jfr.Frequency;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -86,4 +89,18 @@ public class ApiController {
 
         return new BooksPageDTO(booksList);
     }
+
+    @PostMapping("/changeBookStatus")
+    @ResponseBody
+    public ResponseEntity<ApiResponse<String>> changeBookStatus(@RequestParam String status, @RequestParam Integer booksIds){
+
+        System.out.println(status);
+        System.out.println(booksIds);
+
+        return ResponseEntity.ok(new ApiResponse<>(true,null));
+    }
+
+
+
+
 }

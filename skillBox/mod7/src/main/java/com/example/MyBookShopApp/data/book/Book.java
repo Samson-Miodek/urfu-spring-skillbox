@@ -27,7 +27,7 @@ public class Book {
     private String slug;
     @Column(columnDefinition = "VARCHAR(255) NOT NULL")
     private String title;
-    @Column(columnDefinition = "VARCHAR(255)")
+    @Column(columnDefinition = "VARCHAR(255)",unique = true)
     private String image;
 
     @Column(columnDefinition = "TEXT")
@@ -131,7 +131,7 @@ public class Book {
 
     @JsonProperty("discountPrice")
     public int getDiscountPrice() {
-        return price - price * discount / 100;
+        return price-price*discount/100;
     }
 
     @JsonGetter("authors")

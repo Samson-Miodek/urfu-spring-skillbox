@@ -3,7 +3,6 @@ package com.example.MyBookShopApp.service;
 import com.example.MyBookShopApp.data.book.Book;
 import com.example.MyBookShopApp.data.book.BookRating;
 import com.example.MyBookShopApp.data.dto.BookRatingDTO;
-import com.example.MyBookShopApp.data.user.UserEntity;
 import com.example.MyBookShopApp.repository.BookRatingRepository;
 import com.example.MyBookShopApp.repository.BookRepository;
 import com.example.MyBookShopApp.repository.UserEntityRepository;
@@ -55,7 +54,7 @@ public class BookRatingService {
         return false;
     }
 
-    public BookRatingDTO getBookRating(Book book) {
+    public BookRatingDTO getRatingByBook(Book book) {
         var bookRating = bookRatingRepository.getBookRating(book.getId());
         var sum = 0;
         var bookRatingDTO = new BookRatingDTO();

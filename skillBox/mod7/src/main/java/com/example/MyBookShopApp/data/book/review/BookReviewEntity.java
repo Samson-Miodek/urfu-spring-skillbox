@@ -1,5 +1,8 @@
 package com.example.MyBookShopApp.data.book.review;
 
+import com.example.MyBookShopApp.data.book.Book;
+import com.example.MyBookShopApp.data.user.UserEntity;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -11,17 +14,33 @@ public class BookReviewEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(columnDefinition = "INT NOT NULL")
-    private int bookId;
+    @OneToOne
+    @JoinColumn(name = "book_id", referencedColumnName = "id")
+    private Book book;
 
-    @Column(columnDefinition = "INT NOT NULL")
-    private int userId;
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private UserEntity user;
 
     @Column(columnDefinition = "TIMESTAMP NOT NULL")
     private LocalDateTime time;
 
     @Column(columnDefinition = "TEXT NOT NULL")
     private String text;
+
+    public BookReviewEntity() {
+    }
+
+    @Override
+    public String toString() {
+        return "BookReviewEntity{" +
+                "id=" + id +
+                ", book=" + book.getId() +
+                ", user=" + user.getId() +
+                ", time=" + time +
+                ", text='" + text + '\'' +
+                '}';
+    }
 
     public int getId() {
         return id;
@@ -31,20 +50,20 @@ public class BookReviewEntity {
         this.id = id;
     }
 
-    public int getBookId() {
-        return bookId;
+    public Book getBook() {
+        return book;
     }
 
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
+    public void setBook(Book book) {
+        this.book = book;
     }
 
-    public int getUserId() {
-        return userId;
+    public UserEntity getUser() {
+        return user;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser(UserEntity user) {
+        this.user = user;
     }
 
     public LocalDateTime getTime() {

@@ -1,10 +1,9 @@
 package com.example.MyBookShopApp.controllers;
 
 import com.example.MyBookShopApp.data.book.Book;
+import com.example.MyBookShopApp.data.dto.BookReviewsDTO;
 import com.example.MyBookShopApp.data.dto.BooksPageDTO;
-import com.example.MyBookShopApp.service.BookRatingService;
-import com.example.MyBookShopApp.service.BookService;
-import com.example.MyBookShopApp.service.BooksRatingAndPopulatityService;
+import com.example.MyBookShopApp.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,13 +11,18 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 @RequestMapping("/books")
 public class BooksController {
 
+    @Autowired
     private BookService bookService;
+
+    @Autowired
+    private BookReviewLikeEntityService bookReviewLikeEntityService;
 
     @Autowired
     private BookRatingService bookRatingService;
@@ -26,11 +30,9 @@ public class BooksController {
     @Autowired
     private BooksRatingAndPopulatityService booksRatingAndPopulatityService;
 
-
     @Autowired
-    public BooksController(BookService bookService) {
-        this.bookService = bookService;
-    }
+    private BookReviewService bookReviewService;
+
 
     @GetMapping("recent")
     public String recentPage(Model model) throws ParseException {
@@ -60,12 +62,23 @@ public class BooksController {
         if(bookOpt.isEmpty())
             return "redirect:/";
 
+        var reviews = bookReviewService.getReviewByBook(bookOpt.get());
+
         var book = bookOpt.get();
         var bookRatingDTO = bookRatingService.getBookRating(book);
+
+        var reviewsDTO = new ArrayList<BookReviewsDTO>();
+
+        for(var r : reviews){
+            var likes = bookReviewLikeEntityService.getLikesByReview(r);
+            var brdto = new BookReviewsDTO(r,likes);
+            reviewsDTO.add(brdto);
+        }
 
         model.addAttribute("book",book);
         model.addAttribute("IsTagsEmpty",book.getBook2Tags()==null);
         model.addAttribute("rating",bookRatingDTO);
+        model.addAttribute("reviews",reviewsDTO);
         return "books/slug";
     }
 }

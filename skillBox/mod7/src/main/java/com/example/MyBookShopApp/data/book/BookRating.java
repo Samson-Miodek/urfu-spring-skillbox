@@ -22,6 +22,16 @@ public class BookRating {
     public BookRating() {
     }
 
+    @Override
+    public String toString() {
+        return "BookRating{" +
+                "id=" + id +
+                ", book=" + book.getId() +
+                ", user=" + user.getId() +
+                ", rating=" + rating +
+                '}';
+    }
+
     public Long getId() {
         return id;
     }

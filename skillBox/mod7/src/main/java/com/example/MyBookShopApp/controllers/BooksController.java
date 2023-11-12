@@ -54,16 +54,18 @@ public class BooksController {
     }
 
     @GetMapping("/{slug}")
-    private String getBookBySlug(@PathVariable String slug, Model model){
-        var book = bookService.findBySlug(slug);
+    private String getBookBySlug(@PathVariable(required = true) String slug, Model model){
+        var bookOpt = bookService.findBySlug(slug);
 
+        if(bookOpt.isEmpty())
+            return "redirect:/";
+
+        var book = bookOpt.get();
         var bookRatingDTO = bookRatingService.getBookRating(book);
-
 
         model.addAttribute("book",book);
         model.addAttribute("IsTagsEmpty",book.getBook2Tags()==null);
         model.addAttribute("rating",bookRatingDTO);
         return "books/slug";
     }
-
 }

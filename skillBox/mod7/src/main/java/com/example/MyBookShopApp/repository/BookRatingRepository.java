@@ -2,12 +2,11 @@ package com.example.MyBookShopApp.repository;
 
 import com.example.MyBookShopApp.data.book.Book;
 import com.example.MyBookShopApp.data.book.BookRating;
+import com.example.MyBookShopApp.data.user.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,6 +14,9 @@ import java.util.Optional;
 @Repository
 public interface BookRatingRepository extends JpaRepository<BookRating, Long> {
     List<BookRating> findByBook(Book book);
+
+    Optional<BookRating> findByBookAndUserAndRating(Book book, UserEntity user, Short rating );
+    List<BookRating> findAllByBookAndUser(Book book, UserEntity user);
 
 
     @Query(value = "select sum(rating)/count(user_id) as value_rating  from book_rating where book_id = :bookid group by book_id", nativeQuery = true)

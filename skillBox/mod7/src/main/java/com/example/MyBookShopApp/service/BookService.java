@@ -19,6 +19,7 @@ import java.net.ContentHandler;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookService {
@@ -108,7 +109,7 @@ public class BookService {
         return books;
     }
 
-    public Book findBySlug(String slug) {
+    public Optional<Book> findBySlug(String slug) {
         return bookRepository.findBySlug(slug);
     }
 }

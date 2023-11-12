@@ -17,7 +17,7 @@ public class TagService {
     @Autowired
     private Book2TagRepository book2TagRepository;
 
-    public Tag getTagBySlug(String slug){
+    public Tag getTagBySlug(String slug) {
         return tagRepository.findBySlug(slug);
     }
 
@@ -41,11 +41,9 @@ public class TagService {
             tagCount.put(tag, tp);
             var p = ((double) tp) / ((double) max);
             var idSize = (int) (p * (size.size() - 1));
-//            System.out.println(tag.getName() + " " + tagCount.get(tag) + " p=" + p + " size = " + size.get(idSize));
             cloud.put(tag, size.get(idSize));
         }
         min = 0;
-//        System.out.println(min + " " + max);
         return cloud;
     }
 

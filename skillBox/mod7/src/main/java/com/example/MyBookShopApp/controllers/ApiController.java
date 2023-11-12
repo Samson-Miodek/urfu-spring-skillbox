@@ -4,11 +4,9 @@ import com.example.MyBookShopApp.data.ApiResponse;
 import com.example.MyBookShopApp.data.book.Book;
 import com.example.MyBookShopApp.data.dto.BooksPageDTO;
 import com.example.MyBookShopApp.data.dto.SearchWordDTO;
-import com.example.MyBookShopApp.service.BookService;
-import com.example.MyBookShopApp.service.BooksRatingAndPopulatityService;
-import com.example.MyBookShopApp.service.GenresService;
-import com.example.MyBookShopApp.service.TagService;
+import com.example.MyBookShopApp.service.*;
 import jdk.jfr.Frequency;
+import liquibase.pro.packaged.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -31,6 +29,8 @@ public class ApiController {
     private BooksRatingAndPopulatityService booksRatingAndPopulatityService;
     @Autowired
     private TagService tagService;
+    @Autowired
+    private BookRatingService bookRatingService;
 
     @GetMapping("/books/genre/{slug}")
     @ResponseBody
@@ -82,25 +82,26 @@ public class ApiController {
 
     @GetMapping("/books/tag/{slug}")
     @ResponseBody
-    public BooksPageDTO tags(@PathVariable String slug,@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit){
+    public BooksPageDTO tags(@PathVariable String slug, @RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit) {
 
         var tag = tagService.getTagBySlug(slug);
-        var booksList = bookService.getBooksByTag(tag,offset,limit);
+        var booksList = bookService.getBooksByTag(tag, offset, limit);
 
         return new BooksPageDTO(booksList);
     }
 
     @PostMapping("/changeBookStatus")
     @ResponseBody
-    public ResponseEntity<ApiResponse<String>> changeBookStatus(@RequestParam String status, @RequestParam Integer booksIds){
+    public ResponseEntity<ApiResponse<String>> changeBookStatus(@RequestParam String status, @RequestParam Integer booksIds) {
 
-        System.out.println(status);
-        System.out.println(booksIds);
 
-        return ResponseEntity.ok(new ApiResponse<>(true,null));
+        return ResponseEntity.ok(new ApiResponse<>(true, null));
     }
 
-
-
-
+    @PostMapping("/rateBook")
+    @ResponseBody
+    public ResponseEntity<ApiResponse<String>> rateBook(@RequestParam Integer bookId, @RequestParam Short value) {
+        var res = bookRatingService.rateBook(1, bookId, value);
+        return ResponseEntity.ok(new ApiResponse<>(res, null));
+    }
 }

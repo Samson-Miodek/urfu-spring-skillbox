@@ -43,6 +43,7 @@ public class Author {
         this.book2AuthorEntities = book2AuthorEntities;
     }
 
+
     public Integer getId() {
         return id;
     }

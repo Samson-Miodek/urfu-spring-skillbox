@@ -4,12 +4,15 @@ import com.example.MyBookShopApp.data.book.Book;
 import com.example.MyBookShopApp.data.dto.SearchWordDTO;
 import com.example.MyBookShopApp.data.tags.Tag;
 import com.example.MyBookShopApp.service.BookService;
+import com.example.MyBookShopApp.service.BooksRatingAndPopulatityService;
 import com.example.MyBookShopApp.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +21,8 @@ public class MainPageController {
     @Autowired
     private TagService tagCloudService;
     private final BookService bookService;
+    @Autowired
+    private BooksRatingAndPopulatityService booksRatingAndPopulatityService;
 
 
     @Autowired
@@ -31,13 +36,16 @@ public class MainPageController {
     }
 
     @ModelAttribute("newBooks")
-    public List<Book> newBooks() {
-        return bookService.getPageOfBooksData(0, 6).getContent();
+    public List<Book> newBooks() throws ParseException {
+        var simpleDateFormat = new SimpleDateFormat("dd.MM.yyy");
+        var from = simpleDateFormat.parse("01.04.2003");
+        var to = simpleDateFormat.parse("01.01.2020");
+        return bookService.getPageOfBooksDataByPubDate(from, to, 0, 6).getContent();
     }
 
     @ModelAttribute("popularBooks")
     public List<Book> popularBooks() {
-        return bookService.getPageOfBooksData(0, 6).getContent();
+        return booksRatingAndPopulatityService.getPageOfPopularBooks(0, 6).getContent();
     }
 
     @GetMapping("/")

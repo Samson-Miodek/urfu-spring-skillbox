@@ -6,6 +6,6 @@ public enum B2UType {
 //        ◦ Куплена — PAID
 //        ◦ В архиве — ARCHIVED
 //    ;
-        KEPT,CART,PAID,ARCHIVED;
+        KEPT,CART,PAID,ARCHIVED,UNLINK;
 
 }

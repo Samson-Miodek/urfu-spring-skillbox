@@ -112,4 +112,13 @@ public class BookService {
     public Optional<Book> findBySlug(String slug) {
         return bookRepository.findBySlug(slug);
     }
+
+    public List<Book> getBookFromCookie(String ids) {
+        var cookieBooksIdsList = ids.split("/");
+        var booksIds = new ArrayList<Integer>();
+        for (var bookId : cookieBooksIdsList) {
+            booksIds.add(Integer.parseInt(bookId));
+        }
+        return bookRepository.findAllById(booksIds);
+    }
 }

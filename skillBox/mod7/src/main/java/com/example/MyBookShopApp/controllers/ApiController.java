@@ -4,6 +4,7 @@ import com.example.MyBookShopApp.data.ApiResponse;
 import com.example.MyBookShopApp.data.book.Book;
 import com.example.MyBookShopApp.data.dto.BooksPageDTO;
 import com.example.MyBookShopApp.data.dto.SearchWordDTO;
+import com.example.MyBookShopApp.data.enums.B2UType;
 import com.example.MyBookShopApp.service.*;
 import jdk.jfr.Frequency;
 import liquibase.pro.packaged.A;
@@ -13,9 +14,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
@@ -90,11 +94,17 @@ public class ApiController {
         return new BooksPageDTO(booksList);
     }
 
+    @Autowired
+    private ChangeBookService changeBookService;
+
     @PostMapping("/changeBookStatus")
     @ResponseBody
-    public ResponseEntity<ApiResponse<String>> changeBookStatus(@RequestParam String status, @RequestParam Integer booksIds) {
-
-
+    public ResponseEntity<ApiResponse<String>> changeBookStatus(@RequestParam B2UType status, @RequestParam("booksIds[]") Set<Integer> booksIds,
+                                                                @CookieValue(name = "KEPT", required = false) String KEPT,
+                                                                @CookieValue(name = "CART", required = false) String CART,
+                                                                @CookieValue(name = "ARCHIVED", required = false) String ARCHIVED,
+                                                                HttpServletResponse httpServletResponse) {
+        changeBookService.changeBookStatus(status,booksIds,KEPT,CART,ARCHIVED,httpServletResponse);
         return ResponseEntity.ok(new ApiResponse<>(true, null));
     }
 

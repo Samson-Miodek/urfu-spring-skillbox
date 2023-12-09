@@ -5,17 +5,22 @@ import com.example.MyBookShopApp.data.book.Book;
 import com.example.MyBookShopApp.data.dto.BooksPageDTO;
 import com.example.MyBookShopApp.data.dto.SearchWordDTO;
 import com.example.MyBookShopApp.data.enums.B2UType;
+import com.example.MyBookShopApp.security.BookStoreUserRegisterService;
 import com.example.MyBookShopApp.service.*;
 import jdk.jfr.Frequency;
 import liquibase.pro.packaged.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import java.nio.file.attribute.UserPrincipal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -35,6 +40,8 @@ public class ApiController {
     private TagService tagService;
     @Autowired
     private BookRatingService bookRatingService;
+    @Autowired
+    private BookStoreUserRegisterService registrationService;
 
     @GetMapping("/books/genre/{slug}")
     @ResponseBody
@@ -111,7 +118,13 @@ public class ApiController {
     @PostMapping("/rateBook")
     @ResponseBody
     public ResponseEntity<ApiResponse<String>> rateBook(@RequestParam Integer bookId, @RequestParam Short value) {
-        var res = bookRatingService.rateBook(1, bookId, value);
+
+        var user = registrationService.getCurrentUser();
+        boolean res = false;
+        if(user != null)
+            res = bookRatingService.rateBook(user.getId(), bookId, value);
+        else
+            res = bookRatingService.rateBook(1, bookId, value);
         return ResponseEntity.ok(new ApiResponse<>(res, null));
     }
 }

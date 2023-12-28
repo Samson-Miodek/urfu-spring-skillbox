@@ -30,8 +30,6 @@ public class GenresController {
         return "genres/index";
     }
 
-
-
     @GetMapping("/{slug}")
     public String genresPageBySlug(@PathVariable String slug, Model model){
         var genre = genresService.getBySlug(slug);
